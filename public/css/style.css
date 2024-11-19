@@ -1,0 +1,67 @@
+
+a:hover, a:focus {
+  text-decoration: none;
+  outline: none;
+}
+#accordionExample .accordion-item {
+  border: none;
+  border-radius: 0;
+  margin-bottom: 15px;
+  position: relative;
+}
+#accordionExample .accordion-item::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 100%;
+  border: 1px dashed #6e8898;
+  position: absolute;
+  top: 25px;
+  left: 18px;
+}
+#accordionExample .accordion-item:last-child::before {
+  display: none;
+}
+.accordion-header {
+  padding: 0;
+  position: relative;
+}
+.accordion-button {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1d3557;
+  padding: 10px 30px 10px 60px;
+  background-color: #fff;
+}
+.accordion-button::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 10px;
+}
+.accordion-body {
+  padding: 10px 30px 10px 30px;
+  margin-left: 40px;
+  background: #fff;
+  color: #6f6f6f;
+  font-size: 15px;
+  line-height: 28px;
+}
+
+.accordion-number {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #ddd;
+  color: #333;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.accordion-button:not(.collapsed) .accordion-number {
+  background-color: red;
+  color: #fff;
+}
