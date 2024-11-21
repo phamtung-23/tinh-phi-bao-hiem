@@ -65,3 +65,12 @@ a:hover, a:focus {
   background-color: red;
   color: #fff;
 }
+
+.text-label {
+  font-size: 13.5px;
+}
+
+.table th, .table td {
+  width: 33.33%; /* Divide the table into equal parts */
+  text-align: center; /* Optional: Center align the text */
+}
