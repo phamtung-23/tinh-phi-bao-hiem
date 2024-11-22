@@ -105,42 +105,44 @@ function updateChiPhi(priority, inputChiPhiId) {
   changeInputMoney('BHNCaoCap', priority);
   changeInputMoney('BHUngThu', priority);
 
-  if (goiBaoHiemDoc.value == "ATSH") {
-    const row = getRow(
-      dataResultATSH,
-      years.toString(),
-      goiBaoHiemDoc.value,
-      gioiTinhDoc.value,
-      nhomNgheDoc.value
-    );
-
-    if (parseInt(thoiHanDoc.value) < 26) {
-      amount = row[4];
+  if (priority == 1) {
+    if (goiBaoHiemDoc.value == "ATSH") {
+      const row = getRow(
+        dataResultATSH,
+        years.toString(),
+        goiBaoHiemDoc.value,
+        gioiTinhDoc.value,
+        nhomNgheDoc.value
+      );
+  
+      if (parseInt(thoiHanDoc.value) < 26) {
+        amount = row[4];
+      } else {
+        amount = row[5];
+      }
     } else {
-      amount = row[5];
+      const row = getRow(
+        dataResultATDT,
+        years.toString(),
+        "",
+        gioiTinhDoc.value,
+        nhomNgheDoc.value
+      );
+  
+      if (row) {
+        amount = row[3];
+      }
     }
-  } else {
-    const row = getRow(
-      dataResultATDT,
-      years.toString(),
-      "",
-      gioiTinhDoc.value,
-      nhomNgheDoc.value
-    );
-
-    if (row) {
-      amount = row[3];
-    }
+  
+    let advanceAmount = soTienBaoHiemDoc.value.replace(/\./g, "");
+  
+    const chiPhi = advanceAmount
+      ? (parseFloat(advanceAmount.replace(/,/g, "")) *
+          parseFloat(amount.replace(/,/g, ""))) /
+        1000000000
+      : 0;
+    inputChiPhi.value = formatNumber(chiPhi.toFixed(0));
   }
-
-  let advanceAmount = soTienBaoHiemDoc.value.replace(/\./g, "");
-
-  const chiPhi = advanceAmount
-    ? (parseFloat(advanceAmount.replace(/,/g, "")) *
-        parseFloat(amount.replace(/,/g, ""))) /
-      1000000000
-    : 0;
-  inputChiPhi.value = formatNumber(chiPhi.toFixed(0));
   updateTotalPhiCoBanByPriority(priority);
 }
 
@@ -244,7 +246,7 @@ function convertNumberToTextVND(total) {
 // Hàm tính tuổi
 function calculateAge(input, priority) {
   const birthDateInput = input.value; // Lấy giá trị từ phần tử được truyền vào
-  const ageOutput = document.getElementById("tuoi_1");
+  const ageOutput = document.getElementById(`tuoi_${priority}`); // Lấy phần tử hiển thị kết quả
   const checkBoxNoiTruDoc = document.getElementById(`noiTru_${priority}`);
   const checkBoxNoiTru20Doc = document.getElementById(`noiTru20_${priority}`);
   const checkBoxNgoaiTruDoc = document.getElementById(`ngoaiTru_${priority}`);
@@ -367,6 +369,7 @@ function handleChecked(type, priority) {
     checkBoxDoc.checked = false;
     return;
   }
+  showTable(priority);
 
   if (checkBoxDoc.checked) {
     // enable select
@@ -409,7 +412,6 @@ function handleChangeSelect(type, priority) {
   const nhomNgheDoc = document.getElementById(`nhomNghe_${priority}`);
   // validate input
   if (validateInput(priority) == false) {
-    selectDoc.value = "";
     return;
   }
 
@@ -453,6 +455,7 @@ function handleCheckedWithInputMoney(type, priority) {
     checkBoxDoc.checked = false;
     return;
   }
+  showTable(priority);
 
   if (checkBoxDoc.checked) {
     // enable select
@@ -610,6 +613,7 @@ function changeInputMoney(type, priority) {
 function updateTotalPhiCoBanByPriority(priority) {
   console.log("updateTotalPhiCoBanByPriority");
   const table = document.getElementById(`tableMain_${priority}`);
+  const redLine = document.getElementById(`lineRed_${priority}`);
   const phi1NamDoc = document.getElementById(`phi1Nam_${priority}`);
   const phiNuaNamDoc = document.getElementById(`phiNuaNam_${priority}`);
   const phiQuyDoc = document.getElementById(`phiQuy_${priority}`);
@@ -631,7 +635,7 @@ function updateTotalPhiCoBanByPriority(priority) {
   const checkBoxBHNCaoCapDoc = document.getElementById(`BHNCaoCap_${priority}`);
   const checkBoxBHUngThuDoc = document.getElementById(`BHUngThu_${priority}`);
 
-  const phiCobanValue = phiCoban.value ? parseFloat(phiCoban.value.replace(/\./g, "")) : 0;
+  const phiCobanValue = phiCoban && phiCoban.value ? parseFloat(phiCoban.value.replace(/\./g, "")) : 0;
   const phiCobanNoiTruValue = phiCobanNoiTru.value ? parseFloat(phiCobanNoiTru.value.replace(/\./g, "")) : 0;
   const phiCobanNoiTru20Value = phiCobanNoiTru20.value ? parseFloat(phiCobanNoiTru20.value.replace(/\./g, "")) : 0;
   const phiCobanNgoaiTruValue = phiCobanNgoaiTru.value ? parseFloat(phiCobanNgoaiTru.value.replace(/\./g, "")) : 0;
@@ -640,7 +644,11 @@ function updateTotalPhiCoBanByPriority(priority) {
   const phiCobanBHNCaoCapValue = phiCobanBHNCaoCap.value ? parseFloat(phiCobanBHNCaoCap.value.replace(/\./g, "")) : 0;
   const phiCobanBHUngThuValue = phiCobanBHUngThu.value ? parseFloat(phiCobanBHUngThu.value.replace(/\./g, "")) : 0;
 
-  let total = phiCobanValue;
+  let total = 0;
+
+  if (priority == 1) {
+    total += phiCobanValue;
+  }
 
   if (checkBoxNoiTruDoc.checked) {
     total += phiCobanNoiTruValue;
@@ -662,6 +670,11 @@ function updateTotalPhiCoBanByPriority(priority) {
   }
   if (checkBoxBHUngThuDoc.checked) {
     total += phiCobanBHUngThuValue;
+  }
+
+  if (total == 0 && !checkBoxNoiTruDoc.checked && !checkBoxNoiTru20Doc.checked && !checkBoxNgoaiTruDoc.checked && !checkBoxTaiNanCCDoc.checked && !checkBoxHoTroVienPhiDoc.checked && !checkBoxBHNCaoCapDoc.checked && !checkBoxBHUngThuDoc.checked) {
+    table.classList.add("d-none");
+    redLine.classList.add("d-none");
   }
 
   const phi1Nam = total * 1;
@@ -698,5 +711,13 @@ function validateInput(priority) {
     return false;
   }
   return true;
+}
+
+function showTable(priority) {
+  const table = document.getElementById(`tableMain_${priority}`);
+  const redLine = document.getElementById(`lineRed_${priority}`);
+  // remove class d-none
+  table.classList.remove("d-none");
+  redLine.classList.remove("d-none");
 }
 // --------------------- Created By InCoder ---------------------
