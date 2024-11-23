@@ -650,7 +650,7 @@ function updateTotalPhiCoBanByPriority(priority) {
     total += phiCobanValue;
   }
 
-  if (checkBoxNoiTruDoc.checked) {
+  if (checkBoxNoiTruDoc.checked && phiCobanNoiTruValue) {
     total += phiCobanNoiTruValue;
   }
   if (checkBoxNoiTru20Doc.checked) {
@@ -684,6 +684,8 @@ function updateTotalPhiCoBanByPriority(priority) {
   phi1NamDoc.innerText = formatNumber(phi1Nam.toFixed(0));
   phiNuaNamDoc.innerText = formatNumber(phiNuaNam.toFixed(0));
   phiQuyDoc.innerText = formatNumber(phiQuy.toFixed(0));
+
+  updateTotalChiPhi();
 }
 
 function validateInput(priority) {
@@ -711,6 +713,144 @@ function validateInput(priority) {
     return false;
   }
   return true;
+}
+
+function updateTotalChiPhi() {
+  const phi1Nam1 = document.getElementById("phi1Nam_1");
+  const phi1Nam2 = document.getElementById("phi1Nam_2");
+  const phi1Nam3 = document.getElementById("phi1Nam_3");
+  const phi1Nam4 = document.getElementById("phi1Nam_4");
+
+  const totalQuy = document.getElementById("totalQuy");
+  const totalNuaNam = document.getElementById("totalNuaNam");
+  const total1Nam = document.getElementById("total1Nam");
+  
+  const total1 = parseFloat(phi1Nam1.innerText.replace(/\./g, ""));
+  const total2 = parseFloat(phi1Nam2.innerText.replace(/\./g, ""));
+  const total3 = parseFloat(phi1Nam3.innerText.replace(/\./g, ""));
+  const total4 = parseFloat(phi1Nam4.innerText.replace(/\./g, ""));
+
+  const totalPhi1Nam = total1 + total2 + total3 + total4;
+  const totalPhiNuaNam = (totalPhi1Nam) / 2;
+  const totalPhiQuy = (totalPhi1Nam) / 4;
+
+  total1Nam.innerText = `Năm (VNĐ): ${formatNumber(totalPhi1Nam.toFixed(0))}`;
+  totalNuaNam.innerText = `Nửa năm (VNĐ): ${formatNumber(totalPhiNuaNam.toFixed(0))}`;
+  totalQuy.innerText = `QUÝ (VNĐ): ${formatNumber(totalPhiQuy.toFixed(0))}`;
+}
+
+function clearData() {
+  const priority = priorityDeleteGlobal;
+
+  const ngaySinhDoc = document.getElementById(`ngaySinh_${priority}`);
+  const tuoiDoc = document.getElementById(`tuoi_${priority}`);
+  const gioiTinhDoc = document.getElementById(`gioiTinh_${priority}`);
+  const nhomNgheDoc = document.getElementById(`nhomNghe_${priority}`);
+  const goiBaoHiemDoc = document.getElementById(`goiBaoHiem`);
+  const thoiHanDoc = document.getElementById("thoiHan");
+  const soTienBaoHiemDoc = document.getElementById(`soTienBaoHiem_${priority}`);
+  const phiCobanDoc = document.getElementById(`phiCoban_${priority}`);
+
+  const noiTruDoc = document.getElementById(`noiTru_${priority}`);
+  const noiTruLuaChonDoc = document.getElementById(`noiTruLuaChon_${priority}`);
+  const noiTruPhiCoBanDoc = document.getElementById(`noiTruPhiCoBan_${priority}`);
+  const noiTruWrapperPhiCoBanDoc = document.getElementById(`noiTruWrapperPhiCoBan_${priority}`);
+  
+
+  const noiTru20Doc = document.getElementById(`noiTru20_${priority}`);
+  const noiTru20LuaChonDoc = document.getElementById(`noiTru20LuaChon_${priority}`);
+  const noiTru20PhiCoBanDoc = document.getElementById(`noiTru20PhiCoBan_${priority}`);
+  const noiTru20WrapperPhiCoBanDoc = document.getElementById(`noiTru20WrapperPhiCoBan_${priority}`);
+
+  const ngoaiTruDoc = document.getElementById(`ngoaiTru_${priority}`);
+  const ngoaiTruLuaChonDoc = document.getElementById(`ngoaiTruLuaChon_${priority}`);
+  const ngoaiTruPhiCoBanDoc = document.getElementById(`ngoaiTruPhiCoBan_${priority}`);
+  const ngoaiTruWrapperPhiCoBanDoc = document.getElementById(`ngoaiTruWrapperPhiCoBan_${priority}`);
+
+  const taiNanCCDoc = document.getElementById(`taiNanCC_${priority}`);
+  const taiNanCCSotienBHDoc = document.getElementById(`taiNanCCSotienBH_${priority}`);
+  const taiNanCCPhiCoBanDoc = document.getElementById(`taiNanCCPhiCoBan_${priority}`);
+
+  const hoTroVienPhiDoc = document.getElementById(`hoTroVienPhi_${priority}`);
+  const hoTroVienPhiLuaChonDoc = document.getElementById(`hoTroVienPhiLuaChon_${priority}`);
+  const hoTroVienPhiPhiCoBanDoc = document.getElementById(`hoTroVienPhiPhiCoBan_${priority}`);
+
+
+  const BHNCaoCapDoc = document.getElementById(`BHNCaoCap_${priority}`);
+  const BHNCaoCapSotienBHDoc = document.getElementById(`BHNCaoCapSotienBH_${priority}`);
+  const BHNCaoCapPhiCoBanDoc = document.getElementById(`BHNCaoCapPhiCoBan_${priority}`);
+
+  const BHUngThuDoc = document.getElementById(`BHUngThu_${priority}`);
+  const BHUngThuSotienBHDoc = document.getElementById(`BHUngThuSotienBH_${priority}`);
+  const BHUngThuPhiCoBanDoc = document.getElementById(`BHUngThuPhiCoBan_${priority}`);
+
+  
+  const phi1NamDoc = document.getElementById(`phi1Nam_${priority}`);
+  const phiNuaNamDoc = document.getElementById(`phiNuaNam_${priority}`);
+  const phiQuyDoc = document.getElementById(`phiQuy_${priority}`);
+  const table = document.getElementById(`tableMain_${priority}`);
+  const redLine = document.getElementById(`lineRed_${priority}`);
+
+  ngaySinhDoc.value = "";
+  tuoiDoc.value = "";
+  gioiTinhDoc.value = "Nam";
+  nhomNgheDoc.value = "";
+  if (priority == 1) {
+    goiBaoHiemDoc.value = "ATDT";
+    thoiHanDoc.value = "26";
+    soTienBaoHiemDoc.value = "";
+    phiCobanDoc.value = "";
+  }
+  
+
+  noiTruDoc.checked = false;
+  noiTruLuaChonDoc.disabled = true;
+  noiTruPhiCoBanDoc.value = "";
+  noiTruWrapperPhiCoBanDoc.classList.add("d-none");
+
+  noiTru20Doc.checked = false;
+  noiTru20LuaChonDoc.disabled = true;
+  noiTru20PhiCoBanDoc.value = "";
+  noiTru20WrapperPhiCoBanDoc.classList.add("d-none");
+
+  ngoaiTruDoc.checked = false;
+  ngoaiTruLuaChonDoc.disabled = true;
+  ngoaiTruPhiCoBanDoc.value = "";
+  ngoaiTruWrapperPhiCoBanDoc.classList.add("d-none");
+
+  taiNanCCDoc.checked = false;
+  taiNanCCSotienBHDoc.value = "";
+  taiNanCCSotienBHDoc.disabled = true;
+  taiNanCCPhiCoBanDoc.value = "";
+  taiNanCCPhiCoBanDoc.disabled = true;
+
+  hoTroVienPhiDoc.checked = false;
+  hoTroVienPhiLuaChonDoc.disabled = true;
+  hoTroVienPhiPhiCoBanDoc.value = "";
+  hoTroVienPhiPhiCoBanDoc.disabled = true;
+
+  BHNCaoCapDoc.checked = false;
+  BHNCaoCapSotienBHDoc.value = "";
+  BHNCaoCapSotienBHDoc.disabled = true;
+  BHNCaoCapPhiCoBanDoc.value = "";
+  BHNCaoCapPhiCoBanDoc.disabled = true;
+
+  BHUngThuDoc.checked = false;
+  BHUngThuSotienBHDoc.value = "";
+  BHUngThuSotienBHDoc.disabled = true
+  BHUngThuPhiCoBanDoc.value = "";
+  BHUngThuPhiCoBanDoc.disabled = true;
+  
+  phi1NamDoc.innerText = "0";
+  phiNuaNamDoc.innerText = "0";
+  phiQuyDoc.innerText = "0";
+  table.classList.add("d-none");
+  redLine.classList.add("d-none");
+
+  updateTotalChiPhi();
+
+  const modal = bootstrap.Modal.getInstance(document.getElementById('exampleModal1'));
+  modal.hide();
 }
 
 function showTable(priority) {

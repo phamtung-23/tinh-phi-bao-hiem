@@ -102,7 +102,7 @@ try {
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" style="max-width: 80%;">
+      <div class="modal-dialog w-80 m-2" style="max-width: 100%;">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Xem và chọn Nhóm ngành nghề</h1>
@@ -487,9 +487,9 @@ try {
                         </thead>
                         <tbody class="table-group-divider">
                           <tr>
-                            <td class="text-danger fw-bold" id="phiQuy_1">1000</td>
-                            <td class="text-danger fw-bold" id="phiNuaNam_1">1000</td>
-                            <td class="text-danger fw-bold" id="phi1Nam_1">1000</td>
+                            <td class="text-danger fw-bold" id="phiQuy_1">0</td>
+                            <td class="text-danger fw-bold" id="phiNuaNam_1">0</td>
+                            <td class="text-danger fw-bold" id="phi1Nam_1">0</td>
                           </tr>
                         </tbody>
                       </table>
@@ -497,7 +497,7 @@ try {
                     <hr style="color: red;">
                     <!-- Submit button -->
                     <div class="row d-flex justify-content-center mt-3">
-                      <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-danger btn-block mb-4 m-1">Xóa</button>
+                      <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-danger btn-block mb-4 m-1" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="1">Xóa</button>
                       <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-success btn-block mb-4 m-1">Tính phí</button>
                     </div>
                   </form>
@@ -757,9 +757,9 @@ try {
                         </thead>
                         <tbody class="table-group-divider">
                           <tr>
-                            <td class="text-danger fw-bold" id="phiQuy_2">2000</td>
-                            <td class="text-danger fw-bold" id="phiNuaNam_2">2000</td>
-                            <td class="text-danger fw-bold" id="phi1Nam_2">2000</td>
+                            <td class="text-danger fw-bold" id="phiQuy_2">0</td>
+                            <td class="text-danger fw-bold" id="phiNuaNam_2">0</td>
+                            <td class="text-danger fw-bold" id="phi1Nam_2">0</td>
                           </tr>
                         </tbody>
                       </table>
@@ -767,7 +767,7 @@ try {
                     <hr style="color: red;">
                     <!-- Submit button -->
                     <div class="row d-flex justify-content-center mt-3">
-                      <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-danger btn-block mb-4 m-1">Xóa</button>
+                      <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-danger btn-block mb-4 m-1" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="2">Xóa</button>
                       <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-success btn-block mb-4 m-1">Tính phí</button>
                     </div>
                   </form>
@@ -1027,9 +1027,9 @@ try {
                         </thead>
                         <tbody class="table-group-divider">
                           <tr>
-                            <td class="text-danger fw-bold" id="phiQuy_3">2000</td>
-                            <td class="text-danger fw-bold" id="phiNuaNam_3">2000</td>
-                            <td class="text-danger fw-bold" id="phi1Nam_3">2000</td>
+                            <td class="text-danger fw-bold" id="phiQuy_3">0</td>
+                            <td class="text-danger fw-bold" id="phiNuaNam_3">0</td>
+                            <td class="text-danger fw-bold" id="phi1Nam_3">0</td>
                           </tr>
                         </tbody>
                       </table>
@@ -1037,7 +1037,7 @@ try {
                     <hr style="color: red;">
                     <!-- Submit button -->
                     <div class="row d-flex justify-content-center mt-3">
-                      <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-danger btn-block mb-4 m-1">Xóa</button>
+                      <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-danger btn-block mb-4 m-1" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="3">Xóa</button>
                       <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-success btn-block mb-4 m-1">Tính phí</button>
                     </div>
                   </form>
@@ -1319,9 +1319,9 @@ try {
                         </thead>
                         <tbody class="table-group-divider">
                           <tr>
-                            <td class="text-danger fw-bold" id="phiQuy_4">2000</td>
-                            <td class="text-danger fw-bold" id="phiNuaNam_4">2000</td>
-                            <td class="text-danger fw-bold" id="phi1Nam_4">2000</td>
+                            <td class="text-danger fw-bold" id="phiQuy_4">0</td>
+                            <td class="text-danger fw-bold" id="phiNuaNam_4">0</td>
+                            <td class="text-danger fw-bold" id="phi1Nam_4">0</td>
                           </tr>
                         </tbody>
                       </table>
@@ -1330,13 +1330,32 @@ try {
                     <!-- Submit button -->
                     <div class="row d-flex justify-content-center mt-3">
                       <button data-mdb-ripple-init type="button" style="width: 150px;"
-                        class="btn btn-danger btn-block mb-4 m-1">Xóa</button>
+                        class="btn btn-danger btn-block mb-4 m-1" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="4">Xóa</button>
                       <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-success btn-block mb-4 m-1">Tính
                         phí</button>
                     </div>
                   </form>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Xóa dữ liệu</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Bạn có chắc chắn muốn Xóa dữ liệu không?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+              <button type="button" class="btn btn-danger" onclick="clearData()" >Xóa</button>
             </div>
           </div>
         </div>
@@ -1353,13 +1372,13 @@ try {
     </div>
     <div class="row">
       <div class="col-sm-4 d-flex justify-content-center text-bg-light pb-3">
-        <div class="text-primary-emphasis pt-2 pb-2 fs-6 fw-semibold">QUÝ (VNĐ): 0</div>
+        <div class="text-primary-emphasis pt-2 pb-2 fs-6 fw-semibold" id="totalQuy">QUÝ (VNĐ): 0</div>
       </div>
       <div class="col-sm-4 d-flex justify-content-center text-bg-light pb-3">
-        <div class="text-primary-emphasis pt-2 pb-2 fs-6 fw-semibold">Nửa năm (VNĐ): 0</div>
+        <div class="text-primary-emphasis pt-2 pb-2 fs-6 fw-semibold" id="totalNuaNam">Nửa năm (VNĐ): 0</div>
       </div>
       <div class="col-sm-4 d-flex justify-content-center text-bg-light pb-3">
-        <div class="text-primary-emphasis pt-2 pb-2 fs-6 fw-semibold">Năm (VNĐ): 0</div>
+        <div class="text-primary-emphasis pt-2 pb-2 fs-6 fw-semibold" id="total1Nam">Năm (VNĐ): 0</div>
       </div>
     </div>
   </div>
@@ -1399,7 +1418,7 @@ try {
     }
   });
 
-  var countries = [
+  var danhSachNhomNghe = [
     "Bảo vệ-Các cơ quan hành chính sự nghiệp/trường học/văn phòng công ty - Nhóm 1",
     "Bưu điện-Nhân viên quầy giao dịch/phân loại thư - Nhóm 1",
     "Buôn bán-Các mặt hàng THÔNG THƯỜNG và ít di chuyển xa - Nhóm 1",
@@ -1959,10 +1978,10 @@ try {
     customInputContainer.classList.toggle("show");
   });
 
-  let countriesLength = countries.length;
+  let danhSachNhomNgheLength = danhSachNhomNghe.length;
 
-  for (let i = 0; i < countriesLength; i++) {
-    let country = countries[i];
+  for (let i = 0; i < danhSachNhomNgheLength; i++) {
+    let country = danhSachNhomNghe[i];
     const li = document.createElement("li");
     const countryName = document.createTextNode(country);
     li.appendChild(countryName);
@@ -1998,7 +2017,7 @@ try {
     let searchedVal = searchInput.value.toLowerCase();
     let searched_country = [];
 
-    searched_country = countries
+    searched_country = danhSachNhomNghe
       .filter((data) => {
         // Normalize both mainText and searchQuery to remove diacritics
         const normalizedMainText = removeDiacritics(data).toLowerCase();
@@ -2071,6 +2090,18 @@ try {
         document.getElementById('chooseMajorBtn').style.display = 'block';
       }
       priorityGlobal = priority
+    })
+  }
+
+  let priorityDeleteGlobal = 0;
+  const exampleModal1 = document.getElementById('exampleModal1')
+  if (exampleModal1) {
+    exampleModal1.addEventListener('show.bs.modal', event => {
+      // Button that triggered the modal
+      const button = event.relatedTarget
+      // Extract info from data-bs-* attributes
+      const priority = button.getAttribute('data-bs-whatever')
+      priorityDeleteGlobal = priority
     })
   }
 
