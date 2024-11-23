@@ -489,6 +489,12 @@ function changeInputMoney(type, priority) {
   const nhomNgheDoc = document.getElementById(`nhomNghe_${priority}`);
   const tuoiDoc = document.getElementById(`tuoi_${priority}`);
   const gioiTinhDoc = document.getElementById(`gioiTinh_${priority}`);
+  const checkBoxDoc = document.getElementById(`${type}_${priority}`);
+
+  // if not checked then return
+  if (!checkBoxDoc.checked) {
+    return;
+  }
 
   if (type == "hoTroVienPhi") {
     // validate input
