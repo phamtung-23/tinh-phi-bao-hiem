@@ -102,8 +102,8 @@ function updateChiPhi(priority, inputChiPhiId) {
   const inputChiPhi = document.getElementById(inputChiPhiId);
   let amount = 0;
 
-  changeInputMoney('BHNCaoCap', priority);
-  changeInputMoney('BHUngThu', priority);
+  changeInputMoney("BHNCaoCap", priority);
+  changeInputMoney("BHUngThu", priority);
 
   if (priority == 1) {
     if (goiBaoHiemDoc.value == "ATSH") {
@@ -114,7 +114,7 @@ function updateChiPhi(priority, inputChiPhiId) {
         gioiTinhDoc.value,
         nhomNgheDoc.value
       );
-  
+
       if (parseInt(thoiHanDoc.value) < 26) {
         amount = row[4];
       } else {
@@ -128,14 +128,14 @@ function updateChiPhi(priority, inputChiPhiId) {
         gioiTinhDoc.value,
         nhomNgheDoc.value
       );
-  
+
       if (row) {
         amount = row[3];
       }
     }
-  
+
     let advanceAmount = soTienBaoHiemDoc.value.replace(/\./g, "");
-  
+
     const chiPhi = advanceAmount
       ? (parseFloat(advanceAmount.replace(/,/g, "")) *
           parseFloat(amount.replace(/,/g, ""))) /
@@ -250,10 +250,12 @@ function calculateAge(input, priority) {
   const checkBoxNoiTruDoc = document.getElementById(`noiTru_${priority}`);
   const checkBoxNoiTru20Doc = document.getElementById(`noiTru20_${priority}`);
   const checkBoxNgoaiTruDoc = document.getElementById(`ngoaiTru_${priority}`);
-  const checkBoxHoTroVienPhiDoc = document.getElementById(`hoTroVienPhi_${priority}`);
+  const checkBoxHoTroVienPhiDoc = document.getElementById(
+    `hoTroVienPhi_${priority}`
+  );
   const checkBoxBHNCaoCapDoc = document.getElementById(`BHNCaoCap_${priority}`);
   const checkBoxBHUngThuDoc = document.getElementById(`BHUngThu_${priority}`);
-  
+  console.log(birthDateInput);
   if (birthDateInput) {
     const birthDate = new Date(birthDateInput);
     const today = new Date();
@@ -284,17 +286,17 @@ function calculateAge(input, priority) {
       });
       return;
     }
-    if (years > maxAge) {
-      ageOutput.value = ""; // Xóa giá trị nếu ngày sinh không hợp lệ
-      Swal.fire({
-        position: "center",
-        icon: "warning",
-        text: "Số tuổi không hợp lệ",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      return;
-    }
+    // if (years > maxAge) {
+    //   ageOutput.value = ""; // Xóa giá trị nếu ngày sinh không hợp lệ
+    //   Swal.fire({
+    //     position: "center",
+    //     icon: "warning",
+    //     text: "Số tuổi không hợp lệ",
+    //     showConfirmButton: false,
+    //     timer: 1500,
+    //   });
+    //   return;
+    // }
     // Hiển thị kết quả
     ageOutput.value = `${years} tuổi ${months} tháng ${days} ngày`;
     updateChiPhi(priority, `phiCoban_${priority}`);
@@ -308,13 +310,13 @@ function calculateAge(input, priority) {
       handleChangeSelect("ngoaiTru", priority);
     }
     if (checkBoxHoTroVienPhiDoc.checked) {
-      changeInputMoney('hoTroVienPhi', priority);
+      changeInputMoney("hoTroVienPhi", priority);
     }
     if (checkBoxBHUngThuDoc.checked) {
-      changeInputMoney('BHUngThu', priority);
+      changeInputMoney("BHUngThu", priority);
     }
     if (checkBoxBHNCaoCapDoc.checked) {
-      changeInputMoney('BHNCaoCap', priority);
+      changeInputMoney("BHNCaoCap", priority);
     }
   } else {
     ageOutput.value = ""; // Xóa giá trị nếu ngày sinh không hợp lệ
@@ -410,10 +412,10 @@ function handleChangeSelect(type, priority) {
   const phiCoban = document.getElementById(`${type}PhiCoBan_${priority}`);
   const tuoiDoc = document.getElementById(`tuoi_${priority}`);
   const nhomNgheDoc = document.getElementById(`nhomNghe_${priority}`);
-  // validate input
-  if (validateInput(priority) == false) {
-    return;
-  }
+  // // validate input
+  // if (validateInput(priority) == false) {
+  //   return;
+  // }
 
   if (selectDoc.value) {
     const { years } = extractAge(tuoiDoc.value);
@@ -490,9 +492,9 @@ function changeInputMoney(type, priority) {
 
   if (type == "hoTroVienPhi") {
     // validate input
-    if (validateInput(priority) == false) {
-      return;
-    }
+    // if (validateInput(priority) == false) {
+    //   return;
+    // }
     const luaChonDoc = document.getElementById(`${type}LuaChon_${priority}`);
     const { years } = extractAge(tuoiDoc.value);
     let age = years.toString();
@@ -538,14 +540,13 @@ function changeInputMoney(type, priority) {
       phiCobanDoc.value = "";
     }
     updateTotalPhiCoBanByPriority(priority);
-    
   } else {
     // validate input
-    if (validateInput(priority) == false) {
-      inputMoneyDoc.value = "";
+    // if (validateInput(priority) == false) {
+    //   inputMoneyDoc.value = "";
 
-      return;
-    }
+    //   return;
+    // }
     const inputMoney = inputMoneyDoc.value.replace(/\./g, "");
     inputMoneyDoc.value = formatNumber(inputMoney);
 
@@ -620,29 +621,60 @@ function updateTotalPhiCoBanByPriority(priority) {
 
   const phiCoban = document.getElementById(`phiCoban_${priority}`);
   const phiCobanNoiTru = document.getElementById(`noiTruPhiCoBan_${priority}`);
-  const phiCobanNoiTru20 = document.getElementById(`noiTru20PhiCoBan_${priority}`);
-  const phiCobanNgoaiTru = document.getElementById(`ngoaiTruPhiCoBan_${priority}`);
-  const phiCoBanTaiNanCC = document.getElementById(`taiNanCCPhiCoBan_${priority}`);
-  const phiCobanHoTroVienPhi = document.getElementById(`hoTroVienPhiPhiCoBan_${priority}`);
-  const phiCobanBHNCaoCap = document.getElementById(`BHNCaoCapPhiCoBan_${priority}`);
-  const phiCobanBHUngThu = document.getElementById(`BHUngThuPhiCoBan_${priority}`);
+  const phiCobanNoiTru20 = document.getElementById(
+    `noiTru20PhiCoBan_${priority}`
+  );
+  const phiCobanNgoaiTru = document.getElementById(
+    `ngoaiTruPhiCoBan_${priority}`
+  );
+  const phiCoBanTaiNanCC = document.getElementById(
+    `taiNanCCPhiCoBan_${priority}`
+  );
+  const phiCobanHoTroVienPhi = document.getElementById(
+    `hoTroVienPhiPhiCoBan_${priority}`
+  );
+  const phiCobanBHNCaoCap = document.getElementById(
+    `BHNCaoCapPhiCoBan_${priority}`
+  );
+  const phiCobanBHUngThu = document.getElementById(
+    `BHUngThuPhiCoBan_${priority}`
+  );
 
   const checkBoxNoiTruDoc = document.getElementById(`noiTru_${priority}`);
   const checkBoxNoiTru20Doc = document.getElementById(`noiTru20_${priority}`);
   const checkBoxNgoaiTruDoc = document.getElementById(`ngoaiTru_${priority}`);
   const checkBoxTaiNanCCDoc = document.getElementById(`taiNanCC_${priority}`);
-  const checkBoxHoTroVienPhiDoc = document.getElementById(`hoTroVienPhi_${priority}`);
+  const checkBoxHoTroVienPhiDoc = document.getElementById(
+    `hoTroVienPhi_${priority}`
+  );
   const checkBoxBHNCaoCapDoc = document.getElementById(`BHNCaoCap_${priority}`);
   const checkBoxBHUngThuDoc = document.getElementById(`BHUngThu_${priority}`);
 
-  const phiCobanValue = phiCoban && phiCoban.value ? parseFloat(phiCoban.value.replace(/\./g, "")) : 0;
-  const phiCobanNoiTruValue = phiCobanNoiTru.value ? parseFloat(phiCobanNoiTru.value.replace(/\./g, "")) : 0;
-  const phiCobanNoiTru20Value = phiCobanNoiTru20.value ? parseFloat(phiCobanNoiTru20.value.replace(/\./g, "")) : 0;
-  const phiCobanNgoaiTruValue = phiCobanNgoaiTru.value ? parseFloat(phiCobanNgoaiTru.value.replace(/\./g, "")) : 0;
-  const phiCoBanTaiNanCCValue = phiCoBanTaiNanCC.value ? parseFloat(phiCoBanTaiNanCC.value.replace(/\./g, "")) : 0;
-  const phiCobanHoTroVienPhiValue = phiCobanHoTroVienPhi.value ? parseFloat(phiCobanHoTroVienPhi.value.replace(/\./g, "")) : 0;
-  const phiCobanBHNCaoCapValue = phiCobanBHNCaoCap.value ? parseFloat(phiCobanBHNCaoCap.value.replace(/\./g, "")) : 0;
-  const phiCobanBHUngThuValue = phiCobanBHUngThu.value ? parseFloat(phiCobanBHUngThu.value.replace(/\./g, "")) : 0;
+  const phiCobanValue =
+    phiCoban && phiCoban.value
+      ? parseFloat(phiCoban.value.replace(/\./g, ""))
+      : 0;
+  const phiCobanNoiTruValue = phiCobanNoiTru.value
+    ? parseFloat(phiCobanNoiTru.value.replace(/\./g, ""))
+    : 0;
+  const phiCobanNoiTru20Value = phiCobanNoiTru20.value
+    ? parseFloat(phiCobanNoiTru20.value.replace(/\./g, ""))
+    : 0;
+  const phiCobanNgoaiTruValue = phiCobanNgoaiTru.value
+    ? parseFloat(phiCobanNgoaiTru.value.replace(/\./g, ""))
+    : 0;
+  const phiCoBanTaiNanCCValue = phiCoBanTaiNanCC.value
+    ? parseFloat(phiCoBanTaiNanCC.value.replace(/\./g, ""))
+    : 0;
+  const phiCobanHoTroVienPhiValue = phiCobanHoTroVienPhi.value
+    ? parseFloat(phiCobanHoTroVienPhi.value.replace(/\./g, ""))
+    : 0;
+  const phiCobanBHNCaoCapValue = phiCobanBHNCaoCap.value
+    ? parseFloat(phiCobanBHNCaoCap.value.replace(/\./g, ""))
+    : 0;
+  const phiCobanBHUngThuValue = phiCobanBHUngThu.value
+    ? parseFloat(phiCobanBHUngThu.value.replace(/\./g, ""))
+    : 0;
 
   let total = 0;
 
@@ -672,7 +704,16 @@ function updateTotalPhiCoBanByPriority(priority) {
     total += phiCobanBHUngThuValue;
   }
 
-  if (total == 0 && !checkBoxNoiTruDoc.checked && !checkBoxNoiTru20Doc.checked && !checkBoxNgoaiTruDoc.checked && !checkBoxTaiNanCCDoc.checked && !checkBoxHoTroVienPhiDoc.checked && !checkBoxBHNCaoCapDoc.checked && !checkBoxBHUngThuDoc.checked) {
+  if (
+    total == 0 &&
+    !checkBoxNoiTruDoc.checked &&
+    !checkBoxNoiTru20Doc.checked &&
+    !checkBoxNgoaiTruDoc.checked &&
+    !checkBoxTaiNanCCDoc.checked &&
+    !checkBoxHoTroVienPhiDoc.checked &&
+    !checkBoxBHNCaoCapDoc.checked &&
+    !checkBoxBHUngThuDoc.checked
+  ) {
     table.classList.add("d-none");
     redLine.classList.add("d-none");
   }
@@ -724,18 +765,20 @@ function updateTotalChiPhi() {
   const totalQuy = document.getElementById("totalQuy");
   const totalNuaNam = document.getElementById("totalNuaNam");
   const total1Nam = document.getElementById("total1Nam");
-  
+
   const total1 = parseFloat(phi1Nam1.innerText.replace(/\./g, ""));
   const total2 = parseFloat(phi1Nam2.innerText.replace(/\./g, ""));
   const total3 = parseFloat(phi1Nam3.innerText.replace(/\./g, ""));
   const total4 = parseFloat(phi1Nam4.innerText.replace(/\./g, ""));
 
   const totalPhi1Nam = total1 + total2 + total3 + total4;
-  const totalPhiNuaNam = (totalPhi1Nam) / 2;
-  const totalPhiQuy = (totalPhi1Nam) / 4;
+  const totalPhiNuaNam = totalPhi1Nam / 2;
+  const totalPhiQuy = totalPhi1Nam / 4;
 
   total1Nam.innerText = `Năm (VNĐ): ${formatNumber(totalPhi1Nam.toFixed(0))}`;
-  totalNuaNam.innerText = `Nửa năm (VNĐ): ${formatNumber(totalPhiNuaNam.toFixed(0))}`;
+  totalNuaNam.innerText = `Nửa năm (VNĐ): ${formatNumber(
+    totalPhiNuaNam.toFixed(0)
+  )}`;
   totalQuy.innerText = `QUÝ (VNĐ): ${formatNumber(totalPhiQuy.toFixed(0))}`;
 }
 
@@ -753,38 +796,67 @@ function clearData() {
 
   const noiTruDoc = document.getElementById(`noiTru_${priority}`);
   const noiTruLuaChonDoc = document.getElementById(`noiTruLuaChon_${priority}`);
-  const noiTruPhiCoBanDoc = document.getElementById(`noiTruPhiCoBan_${priority}`);
-  const noiTruWrapperPhiCoBanDoc = document.getElementById(`noiTruWrapperPhiCoBan_${priority}`);
-  
+  const noiTruPhiCoBanDoc = document.getElementById(
+    `noiTruPhiCoBan_${priority}`
+  );
+  const noiTruWrapperPhiCoBanDoc = document.getElementById(
+    `noiTruWrapperPhiCoBan_${priority}`
+  );
 
   const noiTru20Doc = document.getElementById(`noiTru20_${priority}`);
-  const noiTru20LuaChonDoc = document.getElementById(`noiTru20LuaChon_${priority}`);
-  const noiTru20PhiCoBanDoc = document.getElementById(`noiTru20PhiCoBan_${priority}`);
-  const noiTru20WrapperPhiCoBanDoc = document.getElementById(`noiTru20WrapperPhiCoBan_${priority}`);
+  const noiTru20LuaChonDoc = document.getElementById(
+    `noiTru20LuaChon_${priority}`
+  );
+  const noiTru20PhiCoBanDoc = document.getElementById(
+    `noiTru20PhiCoBan_${priority}`
+  );
+  const noiTru20WrapperPhiCoBanDoc = document.getElementById(
+    `noiTru20WrapperPhiCoBan_${priority}`
+  );
 
   const ngoaiTruDoc = document.getElementById(`ngoaiTru_${priority}`);
-  const ngoaiTruLuaChonDoc = document.getElementById(`ngoaiTruLuaChon_${priority}`);
-  const ngoaiTruPhiCoBanDoc = document.getElementById(`ngoaiTruPhiCoBan_${priority}`);
-  const ngoaiTruWrapperPhiCoBanDoc = document.getElementById(`ngoaiTruWrapperPhiCoBan_${priority}`);
+  const ngoaiTruLuaChonDoc = document.getElementById(
+    `ngoaiTruLuaChon_${priority}`
+  );
+  const ngoaiTruPhiCoBanDoc = document.getElementById(
+    `ngoaiTruPhiCoBan_${priority}`
+  );
+  const ngoaiTruWrapperPhiCoBanDoc = document.getElementById(
+    `ngoaiTruWrapperPhiCoBan_${priority}`
+  );
 
   const taiNanCCDoc = document.getElementById(`taiNanCC_${priority}`);
-  const taiNanCCSotienBHDoc = document.getElementById(`taiNanCCSotienBH_${priority}`);
-  const taiNanCCPhiCoBanDoc = document.getElementById(`taiNanCCPhiCoBan_${priority}`);
+  const taiNanCCSotienBHDoc = document.getElementById(
+    `taiNanCCSotienBH_${priority}`
+  );
+  const taiNanCCPhiCoBanDoc = document.getElementById(
+    `taiNanCCPhiCoBan_${priority}`
+  );
 
   const hoTroVienPhiDoc = document.getElementById(`hoTroVienPhi_${priority}`);
-  const hoTroVienPhiLuaChonDoc = document.getElementById(`hoTroVienPhiLuaChon_${priority}`);
-  const hoTroVienPhiPhiCoBanDoc = document.getElementById(`hoTroVienPhiPhiCoBan_${priority}`);
-
+  const hoTroVienPhiLuaChonDoc = document.getElementById(
+    `hoTroVienPhiLuaChon_${priority}`
+  );
+  const hoTroVienPhiPhiCoBanDoc = document.getElementById(
+    `hoTroVienPhiPhiCoBan_${priority}`
+  );
 
   const BHNCaoCapDoc = document.getElementById(`BHNCaoCap_${priority}`);
-  const BHNCaoCapSotienBHDoc = document.getElementById(`BHNCaoCapSotienBH_${priority}`);
-  const BHNCaoCapPhiCoBanDoc = document.getElementById(`BHNCaoCapPhiCoBan_${priority}`);
+  const BHNCaoCapSotienBHDoc = document.getElementById(
+    `BHNCaoCapSotienBH_${priority}`
+  );
+  const BHNCaoCapPhiCoBanDoc = document.getElementById(
+    `BHNCaoCapPhiCoBan_${priority}`
+  );
 
   const BHUngThuDoc = document.getElementById(`BHUngThu_${priority}`);
-  const BHUngThuSotienBHDoc = document.getElementById(`BHUngThuSotienBH_${priority}`);
-  const BHUngThuPhiCoBanDoc = document.getElementById(`BHUngThuPhiCoBan_${priority}`);
+  const BHUngThuSotienBHDoc = document.getElementById(
+    `BHUngThuSotienBH_${priority}`
+  );
+  const BHUngThuPhiCoBanDoc = document.getElementById(
+    `BHUngThuPhiCoBan_${priority}`
+  );
 
-  
   const phi1NamDoc = document.getElementById(`phi1Nam_${priority}`);
   const phiNuaNamDoc = document.getElementById(`phiNuaNam_${priority}`);
   const phiQuyDoc = document.getElementById(`phiQuy_${priority}`);
@@ -801,7 +873,6 @@ function clearData() {
     soTienBaoHiemDoc.value = "";
     phiCobanDoc.value = "";
   }
-  
 
   noiTruDoc.checked = false;
   noiTruLuaChonDoc.disabled = true;
@@ -837,10 +908,10 @@ function clearData() {
 
   BHUngThuDoc.checked = false;
   BHUngThuSotienBHDoc.value = "";
-  BHUngThuSotienBHDoc.disabled = true
+  BHUngThuSotienBHDoc.disabled = true;
   BHUngThuPhiCoBanDoc.value = "";
   BHUngThuPhiCoBanDoc.disabled = true;
-  
+
   phi1NamDoc.innerText = "0";
   phiNuaNamDoc.innerText = "0";
   phiQuyDoc.innerText = "0";
@@ -849,7 +920,9 @@ function clearData() {
 
   updateTotalChiPhi();
 
-  const modal = bootstrap.Modal.getInstance(document.getElementById('exampleModal1'));
+  const modal = bootstrap.Modal.getInstance(
+    document.getElementById("exampleModal1")
+  );
   modal.hide();
 }
 

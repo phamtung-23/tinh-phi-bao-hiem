@@ -165,7 +165,7 @@ try {
                       <div class="col-sm-3">
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngaySinh_1" class="form-label m-0 text-start text-label">Ngày sinh</label>
-                          <input type="date" class="form-control shadow-sm" id="ngaySinh_1" aria-describedby="emailHelp" onchange="calculateAge(this, 1)">
+                          <input type="date" class="form-control shadow-sm no-text-input" id="ngaySinh_1" aria-describedby="emailHelp" onchange="calculateAge(this, 1)" oninput="calculateAge(this, 1)" onclick="this.showPicker()">
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -298,10 +298,10 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="noiTruLuaChon_1" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTruLuaChon_1" disabled onchange="handleChangeSelect('noiTru', 1)">
+                            <option value="co_ban">Cơ bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
                             <option value="cao_cap">Cao cấp</option>
-                            <option value="co_ban">Cơ bản</option>
                             <option value="thinh_vuong">Thịnh vượng</option>
                           </select>
                         </div>
@@ -327,10 +327,10 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="noiTru20LuaChon_1" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTru20LuaChon_1" disabled onchange="handleChangeSelect('noiTru20', 1)">
+                            <option value="co_ban">Cơ bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
                             <option value="cao_cap">Cao cấp</option>
-                            <option value="co_ban">Cơ bản</option>
                             <option value="thinh_vuong">Thịnh vượng</option>
                           </select>
                         </div>
@@ -356,10 +356,10 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngoaiTruLuaChon_1" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="ngoaiTruLuaChon_1" disabled onchange="handleChangeSelect('ngoaiTru', 1)">
+                            <option value="co_ban">Cơ bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
                             <option value="cao_cap">Cao cấp</option>
-                            <option value="co_ban">Cơ bản</option>
                             <option value="thinh_vuong">Thịnh vượng</option>
                           </select>
                         </div>
@@ -498,7 +498,7 @@ try {
                     <!-- Submit button -->
                     <div class="row d-flex justify-content-center mt-3">
                       <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-danger btn-block mb-4 m-1" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="1">Xóa</button>
-                      <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-success btn-block mb-4 m-1">Tính phí</button>
+                      <!-- <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-success btn-block mb-4 m-1">Tính phí</button> -->
                     </div>
                   </form>
                 </div>
@@ -533,7 +533,7 @@ try {
                       <div class="col-sm-3">
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngaySinh_2" class="form-label m-0 text-start text-label">Ngày sinh</label>
-                          <input type="date" class="form-control shadow-sm" id="ngaySinh_2" aria-describedby="emailHelp" onchange="calculateAge(this, 2)">
+                          <input type="date" class="form-control shadow-sm no-text-input" id="ngaySinh_2" aria-describedby="emailHelp" onchange="calculateAge(this, 2)" oninput="calculateAge(this, 2)" onclick="this.showPicker()">
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -568,10 +568,10 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="noiTruLuaChon_2" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTruLuaChon_2" disabled onchange="handleChangeSelect('noiTru', 2)">
+                            <option value="co_ban">Cơ bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
                             <option value="cao_cap">Cao cấp</option>
-                            <option value="co_ban">Cơ bản</option>
                             <option value="thinh_vuong">Thịnh vượng</option>
                           </select>
                         </div>
@@ -597,10 +597,10 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="noiTru20LuaChon_2" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTru20LuaChon_2" disabled onchange="handleChangeSelect('noiTru20', 2)">
+                            <option value="co_ban">Cơ bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
                             <option value="cao_cap">Cao cấp</option>
-                            <option value="co_ban">Cơ bản</option>
                             <option value="thinh_vuong">Thịnh vượng</option>
                           </select>
                         </div>
@@ -626,10 +626,10 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngoaiTruLuaChon_2" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="ngoaiTruLuaChon_2" disabled onchange="handleChangeSelect('ngoaiTru', 2)">
+                            <option value="co_ban">Cơ bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
                             <option value="cao_cap">Cao cấp</option>
-                            <option value="co_ban">Cơ bản</option>
                             <option value="thinh_vuong">Thịnh vượng</option>
                           </select>
                         </div>
@@ -768,7 +768,7 @@ try {
                     <!-- Submit button -->
                     <div class="row d-flex justify-content-center mt-3">
                       <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-danger btn-block mb-4 m-1" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="2">Xóa</button>
-                      <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-success btn-block mb-4 m-1">Tính phí</button>
+                      <!-- <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-success btn-block mb-4 m-1">Tính phí</button> -->
                     </div>
                   </form>
                 </div>
@@ -803,7 +803,7 @@ try {
                       <div class="col-sm-3">
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngaySinh_3" class="form-label m-0 text-start text-label">Ngày sinh</label>
-                          <input type="date" class="form-control shadow-sm" id="ngaySinh_3" aria-describedby="emailHelp" onchange="calculateAge(this, 3)">
+                          <input type="date" class="form-control shadow-sm no-text-input" id="ngaySinh_3" aria-describedby="emailHelp" onchange="calculateAge(this, 3)" oninput="calculateAge(this, 3)" onclick="this.showPicker()">
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -838,10 +838,10 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="noiTruLuaChon_3" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTruLuaChon_3" disabled onchange="handleChangeSelect('noiTru', 3)">
+                            <option value="co_ban">Cơ bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
                             <option value="cao_cap">Cao cấp</option>
-                            <option value="co_ban">Cơ bản</option>
                             <option value="thinh_vuong">Thịnh vượng</option>
                           </select>
                         </div>
@@ -867,10 +867,10 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="noiTru20LuaChon_3" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTru20LuaChon_3" disabled onchange="handleChangeSelect('noiTru20', 3)">
+                            <option value="co_ban">Cơ bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
                             <option value="cao_cap">Cao cấp</option>
-                            <option value="co_ban">Cơ bản</option>
                             <option value="thinh_vuong">Thịnh vượng</option>
                           </select>
                         </div>
@@ -896,10 +896,10 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngoaiTruLuaChon_3" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="ngoaiTruLuaChon_3" disabled onchange="handleChangeSelect('ngoaiTru', 3)">
+                            <option value="co_ban">Cơ bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
                             <option value="cao_cap">Cao cấp</option>
-                            <option value="co_ban">Cơ bản</option>
                             <option value="thinh_vuong">Thịnh vượng</option>
                           </select>
                         </div>
@@ -1038,7 +1038,7 @@ try {
                     <!-- Submit button -->
                     <div class="row d-flex justify-content-center mt-3">
                       <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-danger btn-block mb-4 m-1" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="3">Xóa</button>
-                      <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-success btn-block mb-4 m-1">Tính phí</button>
+                      <!-- <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-success btn-block mb-4 m-1">Tính phí</button> -->
                     </div>
                   </form>
                 </div>
@@ -1074,8 +1074,8 @@ try {
                       <div class="col-sm-3">
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngaySinh_4" class="form-label m-0 text-start text-label">Ngày sinh</label>
-                          <input type="date" class="form-control shadow-sm" id="ngaySinh_4" aria-describedby="emailHelp"
-                            onchange="calculateAge(this, 4)">
+                          <input type="date" class="form-control shadow-sm no-text-input" id="ngaySinh_4" aria-describedby="emailHelp"
+                            onchange="calculateAge(this, 4)" oninput="calculateAge(this, 4)" onclick="this.showPicker()">
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -1113,10 +1113,10 @@ try {
                           <label for="noiTruLuaChon_4" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTruLuaChon_4" disabled
                             onchange="handleChangeSelect('noiTru', 4)">
+                            <option value="co_ban">Cơ bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
                             <option value="cao_cap">Cao cấp</option>
-                            <option value="co_ban">Cơ bản</option>
                             <option value="thinh_vuong">Thịnh vượng</option>
                           </select>
                         </div>
@@ -1144,10 +1144,10 @@ try {
                           <label for="noiTru20LuaChon_4" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTru20LuaChon_4" disabled
                             onchange="handleChangeSelect('noiTru20', 4)">
+                            <option value="co_ban">Cơ bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
                             <option value="cao_cap">Cao cấp</option>
-                            <option value="co_ban">Cơ bản</option>
                             <option value="thinh_vuong">Thịnh vượng</option>
                           </select>
                         </div>
@@ -1176,10 +1176,10 @@ try {
                           <label for="ngoaiTruLuaChon_4" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="ngoaiTruLuaChon_4" disabled
                             onchange="handleChangeSelect('ngoaiTru', 4)">
+                            <option value="co_ban">Cơ bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
                             <option value="cao_cap">Cao cấp</option>
-                            <option value="co_ban">Cơ bản</option>
                             <option value="thinh_vuong">Thịnh vượng</option>
                           </select>
                         </div>
@@ -1331,8 +1331,8 @@ try {
                     <div class="row d-flex justify-content-center mt-3">
                       <button data-mdb-ripple-init type="button" style="width: 150px;"
                         class="btn btn-danger btn-block mb-4 m-1" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="4">Xóa</button>
-                      <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-success btn-block mb-4 m-1">Tính
-                        phí</button>
+                      <!-- <button data-mdb-ripple-init type="button" style="width: 150px;" class="btn btn-success btn-block mb-4 m-1">Tính
+                        phí</button> -->
                     </div>
                   </form>
                 </div>
@@ -1355,7 +1355,7 @@ try {
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-              <button type="button" class="btn btn-danger" onclick="clearData()" >Xóa</button>
+              <button type="button" class="btn btn-danger" onclick="clearData()">Xóa</button>
             </div>
           </div>
         </div>
