@@ -1,4 +1,3 @@
-console.log("Hello World!");
 
 function extractAge(ageString) {
   // Regular expression to match numbers followed by specific keywords
@@ -245,7 +244,7 @@ function convertNumberToTextVND(total) {
 
 // Hàm tính tuổi
 function calculateAge(input, priority) {
-  const birthDateInput = input.value; // Lấy giá trị từ phần tử được truyền vào
+  let birthDateInput = input.value; // Lấy giá trị từ phần tử được truyền vào là chuỗi ngày sinh 'dd/mm/yyyy'
   const ageOutput = document.getElementById(`tuoi_${priority}`); // Lấy phần tử hiển thị kết quả
   const checkBoxNoiTruDoc = document.getElementById(`noiTru_${priority}`);
   const checkBoxNoiTru20Doc = document.getElementById(`noiTru20_${priority}`);
@@ -255,9 +254,28 @@ function calculateAge(input, priority) {
   );
   const checkBoxBHNCaoCapDoc = document.getElementById(`BHNCaoCap_${priority}`);
   const checkBoxBHUngThuDoc = document.getElementById(`BHUngThu_${priority}`);
-  console.log(birthDateInput);
+
+  // Normalize input to 'dd/mm/yyyy' format if it's in 'ddmmyyyy' format
+  if (/^\d{8}$/.test(birthDateInput)) {
+    birthDateInput = `${birthDateInput.slice(0, 2)}/${birthDateInput.slice(2, 4)}/${birthDateInput.slice(4)}`;
+  }
+  // convert string 'birthDateInput' to date
+  const dateRegex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+  if (!dateRegex.test(birthDateInput)) {
+    ageOutput.value = ""; // Xóa giá trị nếu ngày sinh không hợp lệ
+    return;
+  }
+
+  const [_, day, month, year] = birthDateInput.match(dateRegex);
+  const birthDate = new Date(`${year}-${month}-${day}`);
+  // check if date is valid
+  if (isNaN(birthDate.getTime())) {
+    ageOutput.value = ""; // Xóa giá trị nếu ngày sinh không hợp lệ
+    alert("Ngày sinh không hợp lệ");
+    return;
+  }
+
   if (birthDateInput) {
-    const birthDate = new Date(birthDateInput);
     const today = new Date();
 
     // Tính số năm, tháng, ngày
@@ -407,6 +425,57 @@ function handleChecked(type, priority) {
   updateTotalPhiCoBanByPriority(priority);
 }
 
+function handleUnChecked(type, priority) {
+  const checkBoxDoc = document.getElementById(`${type}_${priority}`);
+  const selectDoc = document.getElementById(`${type}LuaChon_${priority}`);
+  const wrapperPhiCobanDoc = document.getElementById(
+    `${type}WrapperPhiCoBan_${priority}`
+  );
+  const phiCoban = document.getElementById(`${type}PhiCoBan_${priority}`);
+  const ngaySinhDoc = document.getElementById(`ngaySinh_${priority}`);
+  const tuoiDoc = document.getElementById(`tuoi_${priority}`);
+  const nhomNgheDoc = document.getElementById(`nhomNghe_${priority}`);
+  // // validate input
+  // if (validateInput(priority) == false) {
+  //   checkBoxDoc.checked = false;
+  //   return;
+  // }
+  showTable(priority);
+
+  if (checkBoxDoc.checked) {
+    // enable select
+    selectDoc.disabled = false;
+    // remove class d-none
+    wrapperPhiCobanDoc.classList.remove("d-none");
+
+    const { years } = extractAge(tuoiDoc.value);
+
+    const row = dataResultCSSKTC.find(
+      (row) =>
+        row[0] === years.toString() &&
+        row[1] === getGroup(nhomNgheDoc.value) &&
+        row[2] === getSelect(selectDoc.value)
+    );
+
+    if (type == "noiTru") {
+      phiCoban.value = formatNumber(row[3].replace(/,/g, ""));
+    }
+    if (type == "noiTru20") {
+      phiCoban.value = formatNumber(row[4].replace(/,/g, ""));
+    }
+    if (type == "ngoaiTru") {
+      phiCoban.value = formatNumber(row[5].replace(/,/g, ""));
+    }
+  } else {
+    // disable select
+    selectDoc.disabled = true;
+    // add class d-none
+    wrapperPhiCobanDoc.classList.add("d-none");
+    phiCoban.value = "";
+  }
+  updateTotalPhiCoBanByPriority(priority);
+}
+
 function handleChangeSelect(type, priority) {
   const selectDoc = document.getElementById(`${type}LuaChon_${priority}`);
   const phiCoban = document.getElementById(`${type}PhiCoBan_${priority}`);
@@ -420,9 +489,9 @@ function handleChangeSelect(type, priority) {
   if (selectDoc.value) {
     const { years } = extractAge(tuoiDoc.value);
 
-    console.log(years.toString());
-    console.log(getGroup(nhomNgheDoc.value));
-    console.log(getSelect(selectDoc.value));
+    // console.log(years.toString());
+    // console.log(getGroup(nhomNgheDoc.value));
+    // console.log(getSelect(selectDoc.value));
 
     const row = dataResultCSSKTC.find(
       (row) =>
@@ -431,7 +500,7 @@ function handleChangeSelect(type, priority) {
         row[2] === getSelect(selectDoc.value)
     );
 
-    console.log(row);
+    // console.log(row);
 
     if (type == "noiTru") {
       phiCoban.value = formatNumber(row[3].replace(/,/g, ""));
@@ -457,6 +526,42 @@ function handleCheckedWithInputMoney(type, priority) {
     checkBoxDoc.checked = false;
     return;
   }
+  showTable(priority);
+
+  if (checkBoxDoc.checked) {
+    // enable select
+    if (type == "hoTroVienPhi") {
+      luaChonDoc.disabled = false;
+      changeInputMoney(type, priority);
+    } else {
+      inputMoneyDoc.disabled = false;
+    }
+  } else {
+    if (type == "hoTroVienPhi") {
+      // disable select
+      luaChonDoc.disabled = true;
+    } else {
+      // disable select
+      inputMoneyDoc.disabled = true;
+      inputMoneyDoc.value = "";
+    }
+
+    // add class d-none
+    phiCobanDoc.value = "";
+  }
+  updateTotalPhiCoBanByPriority(priority);
+}
+
+function handleUnCheckedWithInputMoney(type, priority) {
+  const checkBoxDoc = document.getElementById(`${type}_${priority}`);
+  const inputMoneyDoc = document.getElementById(`${type}SotienBH_${priority}`);
+  const phiCobanDoc = document.getElementById(`${type}PhiCoBan_${priority}`);
+  const luaChonDoc = document.getElementById(`${type}LuaChon_${priority}`);
+  // validate input
+  // if (validateInput(priority) == false) {
+  //   checkBoxDoc.checked = false;
+  //   return;
+  // }
   showTable(priority);
 
   if (checkBoxDoc.checked) {
@@ -583,7 +688,7 @@ function changeInputMoney(type, priority) {
         const row = dataResultBHCCTD.find(
           (row) => row[0] === age && row[1] === gioiTinhDoc.value
         );
-        console.log(row);
+        // console.log(row);
         if (row) {
           const chiPhi =
             (parseFloat(inputMoney.replace(/,/g, "")) *
@@ -600,7 +705,7 @@ function changeInputMoney(type, priority) {
         const row = dataResultHTDTUT.find(
           (row) => row[0] === age && row[1] === gioiTinhDoc.value
         );
-        console.log(row);
+        // console.log(row);
         if (row) {
           const chiPhi =
             (parseFloat(inputMoney.replace(/,/g, "")) *
@@ -618,7 +723,7 @@ function changeInputMoney(type, priority) {
 }
 
 function updateTotalPhiCoBanByPriority(priority) {
-  console.log("updateTotalPhiCoBanByPriority");
+  // console.log("updateTotalPhiCoBanByPriority");
   const table = document.getElementById(`tableMain_${priority}`);
   const redLine = document.getElementById(`lineRed_${priority}`);
   const phi1NamDoc = document.getElementById(`phi1Nam_${priority}`);
@@ -691,10 +796,10 @@ function updateTotalPhiCoBanByPriority(priority) {
   if (checkBoxNoiTruDoc.checked && phiCobanNoiTruValue) {
     total += phiCobanNoiTruValue;
   }
-  if (checkBoxNoiTru20Doc.checked) {
+  if (checkBoxNoiTru20Doc.checked && phiCobanNoiTru20Value) {
     total += phiCobanNoiTru20Value;
   }
-  if (checkBoxNgoaiTruDoc.checked) {
+  if (checkBoxNgoaiTruDoc.checked && phiCobanNgoaiTruValue) {
     total += phiCobanNgoaiTruValue;
   }
   if (checkBoxTaiNanCCDoc.checked) {
@@ -736,10 +841,10 @@ function updateTotalPhiCoBanByPriority(priority) {
 }
 
 function validateInput(priority) {
-  const ngaySinhDoc = document.getElementById(`ngaySinh_${priority}`);
+  const tuoiDoc = document.getElementById(`tuoi_${priority}`);
   const nhomNgheDoc = document.getElementById(`nhomNghe_${priority}`);
 
-  if (!ngaySinhDoc.value) {
+  if (!tuoiDoc.value) {
     Swal.fire({
       position: "center",
       icon: "warning",
@@ -760,6 +865,46 @@ function validateInput(priority) {
     return false;
   }
   return true;
+}
+
+function validateInputNhomNghe(input, priority) {
+  const value = parseInt(input.value);
+  // Check if value is not a number or out of range
+  if (isNaN(value) || value < 1 || value > 4) {
+    input.value = "";
+    return; // Exit the function if the input is invalid
+  }
+  // check value null
+  if (!value) {
+    // console.log("value null");
+  } else {
+    handleChecked("noiTru", priority);
+    handleChecked("noiTru20", priority);
+    handleChecked("ngoaiTru", priority);
+    changeInputMoney("taiNanCC", priority);
+    changeInputMoney("hoTroVienPhi", priority);
+    updateChiPhi(1, 'phiCoban_1');
+  }
+}
+
+function unCheckCheckBox(priority) {
+  const checkBoxNoiTruDoc = document.getElementById(`noiTru_${priority}`);
+  const checkBoxNoiTru20Doc = document.getElementById(`noiTru20_${priority}`);
+  const checkBoxNgoaiTruDoc = document.getElementById(`ngoaiTru_${priority}`);
+  const checkBoxTaiNanCCDoc = document.getElementById(`taiNanCC_${priority}`);
+  const checkBoxHoTroVienPhiDoc = document.getElementById(`hoTroVienPhi_${priority}`);
+
+  checkBoxNoiTruDoc.checked = false;
+  checkBoxNoiTru20Doc.checked = false;
+  checkBoxNgoaiTruDoc.checked = false;
+  checkBoxTaiNanCCDoc.checked = false;
+  checkBoxHoTroVienPhiDoc.checked = false;
+
+  handleUnChecked("noiTru", priority);
+  handleUnChecked("noiTru20", priority);
+  handleUnChecked("ngoaiTru", priority);
+  handleUnCheckedWithInputMoney("taiNanCC", priority);
+  handleUnCheckedWithInputMoney("hoTroVienPhi", priority);
 }
 
 function updateTotalChiPhi() {

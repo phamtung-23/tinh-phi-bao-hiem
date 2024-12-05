@@ -165,7 +165,7 @@ try {
                       <div class="col-sm-3">
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngaySinh_1" class="form-label m-0 text-start text-label">Ngày sinh</label>
-                          <input type="date" class="form-control shadow-sm no-text-input" id="ngaySinh_1" aria-describedby="emailHelp" onchange="calculateAge(this, 1)" oninput="calculateAge(this, 1)" onclick="this.showPicker()">
+                          <input type="text" class="form-control shadow-sm no-text-input" id="ngaySinh_1" placeholder="DD/MM/YYYY" oninput="calculateAge(this, 1)">
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -178,7 +178,7 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="nhomNghe_1" class="form-label m-0 text-start text-label">Nhóm nghề</label>
                           <div class="d-flex align-items-center">
-                            <input type="number" class="form-control shadow-sm" id="nhomNghe_1" disabled aria-describedby="emailHelp" onchange="updateChiPhi(1, 'phiCoban_1')">
+                            <input type="number" class="form-control shadow-sm" id="nhomNghe_1" aria-describedby="emailHelp" onchange="updateChiPhi(1, 'phiCoban_1')" min="1" max="4" oninput="validateInputNhomNghe(this, 1)">
                             <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="1">
                               <i class="ph ph-list-magnifying-glass fs-4"></i>
                             </button>
@@ -533,7 +533,7 @@ try {
                       <div class="col-sm-3">
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngaySinh_2" class="form-label m-0 text-start text-label">Ngày sinh</label>
-                          <input type="date" class="form-control shadow-sm no-text-input" id="ngaySinh_2" aria-describedby="emailHelp" onchange="calculateAge(this, 2)" oninput="calculateAge(this, 2)" onclick="this.showPicker()">
+                          <input type="text" class="form-control shadow-sm no-text-input" id="ngaySinh_2" placeholder="DD/MM/YYYY" oninput="calculateAge(this, 2)">
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -546,7 +546,7 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="nhomNghe_2" class="form-label m-0 text-start text-label">Nhóm nghề</label>
                           <div class="d-flex align-items-center">
-                            <input type="number" class="form-control shadow-sm" id="nhomNghe_2" disabled aria-describedby="emailHelp" onchange="updateChiPhi(2, 'phiCoban_2')">
+                            <input type="number" class="form-control shadow-sm" id="nhomNghe_2" aria-describedby="emailHelp" onchange="updateChiPhi(2, 'phiCoban_2')" min="1" max="4" oninput="validateInputNhomNghe(this, 2)">
                             <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="2">
                               <i class="ph ph-list-magnifying-glass fs-4"></i>
                             </button>
@@ -803,7 +803,7 @@ try {
                       <div class="col-sm-3">
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngaySinh_3" class="form-label m-0 text-start text-label">Ngày sinh</label>
-                          <input type="date" class="form-control shadow-sm no-text-input" id="ngaySinh_3" aria-describedby="emailHelp" onchange="calculateAge(this, 3)" oninput="calculateAge(this, 3)" onclick="this.showPicker()">
+                          <input type="text" class="form-control shadow-sm no-text-input" id="ngaySinh_3" placeholder="DD/MM/YYYY" oninput="calculateAge(this, 3)">
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -816,7 +816,7 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="nhomNghe_3" class="form-label m-0 text-start text-label">Nhóm nghề</label>
                           <div class="d-flex align-items-center">
-                            <input type="number" class="form-control shadow-sm" id="nhomNghe_3" disabled aria-describedby="emailHelp" onchange="updateChiPhi(3, 'phiCoban_3')">
+                            <input type="number" class="form-control shadow-sm" id="nhomNghe_3" aria-describedby="emailHelp" onchange="updateChiPhi(3, 'phiCoban_3')" min="1" max="4" oninput="validateInputNhomNghe(this, 3)">
                             <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="3">
                               <i class="ph ph-list-magnifying-glass fs-4"></i>
                             </button>
@@ -1074,8 +1074,8 @@ try {
                       <div class="col-sm-3">
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngaySinh_4" class="form-label m-0 text-start text-label">Ngày sinh</label>
-                          <input type="date" class="form-control shadow-sm no-text-input" id="ngaySinh_4" aria-describedby="emailHelp"
-                            onchange="calculateAge(this, 4)" oninput="calculateAge(this, 4)" onclick="this.showPicker()">
+                          <input type="text" class="form-control shadow-sm no-text-input" id="ngaySinh_4" placeholder="DD/MM/YYYY"
+                            oninput="calculateAge(this, 4)">
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -1088,8 +1088,8 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="nhomNghe_4" class="form-label m-0 text-start text-label">Nhóm nghề</label>
                           <div class="d-flex align-items-center">
-                            <input type="number" class="form-control shadow-sm" id="nhomNghe_4" disabled aria-describedby="emailHelp"
-                              onchange="updateChiPhi(4, 'phiCoban_4')">
+                            <input type="number" class="form-control shadow-sm" id="nhomNghe_4" aria-describedby="emailHelp"
+                              onchange="updateChiPhi(4, 'phiCoban_4')" min="1" max="4" oninput="validateInputNhomNghe(this, 4)">
                             <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                               data-bs-whatever="4">
                               <i class="ph ph-list-magnifying-glass fs-4"></i>
@@ -2011,7 +2011,7 @@ try {
     }
     data.classList.add("selected");
     customInputContainer.classList.toggle("show");
-    console.log(selectedCountry);
+    // console.log(selectedCountry);
   }
 
   searchInput.addEventListener("keyup", (e) => {
@@ -2110,7 +2110,7 @@ try {
     // const selectedMajor = document.getElementById(inputId).value;
     const selectedMajor = selectedData.innerText;
     const normalizedMainText = removeDiacritics(selectedMajor).toLowerCase();
-    console.log(normalizedMainText);
+    // console.log(normalizedMainText);
     let nhomNganh = 0;
     if (normalizedMainText.includes('1') && !normalizedMainText.includes('loai tru') && !normalizedMainText.includes('tu choi')) {
       nhomNganh = 1;
