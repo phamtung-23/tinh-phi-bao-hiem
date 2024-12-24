@@ -869,7 +869,6 @@ function validateInput(priority) {
 
 function validateInputNhomNghe(input, priority) {
   const value = parseInt(input.value);
-  // Check if value is not a number or out of range
   if (isNaN(value) || value < 1 || value > 4) {
     input.value = "";
     return; // Exit the function if the input is invalid

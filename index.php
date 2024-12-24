@@ -68,10 +68,11 @@ try {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
   <meta charset="UTF-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tính Phí Bảo Hiểm</title>
   <link rel="stylesheet" href="public/css/style.css">
@@ -91,7 +92,7 @@ try {
   <div class="container text-center">
     <div class="row">
       <div class="col-sm-12">
-        <div class="text-danger p-3 fs-2 fw-bold">Tính Phí Bảo Hiểm Dai-Ichi</div>
+        <div class="text-danger p-3 fs-2 fw-bold">Tính Phí Bảo Hiểm Dai-ichi</div>
       </div>
     </div>
     <div class="row">
@@ -193,7 +194,7 @@ try {
                           <label for="goiBaoHiem" class="form-label m-0 text-start text-label">Gói bảo hiểm</label>
                           <select class="form-select" aria-label="Default select example" id="goiBaoHiem" onchange="updateChiPhi(1, 'phiCoban_1')">
                             <option value="ATSH" selected>AN TÂM SONG HÀNH</option>
-                            <option value="ATDT">AN THỊNH ĐÀU TƯ</option>
+                            <option value="ATDT">AN THỊNH ĐẦU TƯ</option>
                           </select>
                         </div>
                       </div>
@@ -288,9 +289,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="noiTru_1" onchange="handleChecked('noiTru', 1)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="noiTru_1" onchange="handleChecked('noiTru', 1)">
+                          </div>
                           <label class="form-check-label text-black" for="noiTru_1">
-                            NỘI TRÚ
+                            Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú
                           </label>
                         </div>
                       </div>
@@ -298,17 +301,17 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="noiTruLuaChon_1" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTruLuaChon_1" disabled onchange="handleChangeSelect('noiTru', 1)">
-                            <option value="co_ban">Cơ bản</option>
+                            <option value="co_ban">Cơ Bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
-                            <option value="cao_cap">Cao cấp</option>
-                            <option value="thinh_vuong">Thịnh vượng</option>
+                            <option value="cao_cap">Cao Cấp</option>
+                            <option value="thinh_vuong">Thịnh Vượng</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div id="noiTruWrapperPhiCoBan_1" class="mb-3 d-flex flex-column justify-content-start d-none">
-                          <label for="noiTruPhiCoBan_1" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="noiTruPhiCoBan_1" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="noiTruPhiCoBan_1" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -317,9 +320,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="noiTru20_1" onchange="handleChecked('noiTru20', 1)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="noiTru20_1" onchange="handleChecked('noiTru20', 1)">
+                          </div>
                           <label class="form-check-label text-black" for="noiTru20_1">
-                            NỘI TRÚ ĐỒNG CHI TRẢ 20%
+                            Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú đồng chi trả 20% (dưới 6 tuổi mặc định đồng chi trả 30%)
                           </label>
                         </div>
                       </div>
@@ -327,17 +332,17 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="noiTru20LuaChon_1" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTru20LuaChon_1" disabled onchange="handleChangeSelect('noiTru20', 1)">
-                            <option value="co_ban">Cơ bản</option>
+                            <option value="co_ban">Cơ Bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
-                            <option value="cao_cap">Cao cấp</option>
-                            <option value="thinh_vuong">Thịnh vượng</option>
+                            <option value="cao_cap">Cao Cấp</option>
+                            <option value="thinh_vuong">Thịnh Vượng</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div id="noiTru20WrapperPhiCoBan_1" class="mb-3 d-flex flex-column justify-content-start d-none">
-                          <label for="noiTru20PhiCoBan_1" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="noiTru20PhiCoBan_1" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="noiTru20PhiCoBan_1" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -346,9 +351,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="ngoaiTru_1" onchange="handleChecked('ngoaiTru', 1)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="ngoaiTru_1" onchange="handleChecked('ngoaiTru', 1)">
+                          </div>
                           <label class="form-check-label text-black" for="ngoaiTru_1">
-                            NGOẠI TRÚ
+                            Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi ngoại trú
                           </label>
                         </div>
                       </div>
@@ -356,17 +363,17 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngoaiTruLuaChon_1" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="ngoaiTruLuaChon_1" disabled onchange="handleChangeSelect('ngoaiTru', 1)">
-                            <option value="co_ban">Cơ bản</option>
+                            <option value="co_ban">Cơ Bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
-                            <option value="cao_cap">Cao cấp</option>
-                            <option value="thinh_vuong">Thịnh vượng</option>
+                            <option value="cao_cap">Cao Cấp</option>
+                            <option value="thinh_vuong">Thịnh Vượng</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div id="ngoaiTruWrapperPhiCoBan_1" class="mb-3 d-flex flex-column justify-content-start d-none">
-                          <label for="ngoaiTruPhiCoBan_1" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="ngoaiTruPhiCoBan_1" class="form-label m-0 text-start text-label">Phi Cơ Bản</label>
                           <input type="email" class="form-control shadow-sm" id="ngoaiTruPhiCoBan_1" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -375,9 +382,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="taiNanCC_1" onchange="handleCheckedWithInputMoney('taiNanCC', 1)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="taiNanCC_1" onchange="handleCheckedWithInputMoney('taiNanCC', 1)">
+                          </div>
                           <label class="form-check-label text-black" for="taiNanCC_1">
-                            TAI NẠN CC
+                            Bảo Hiểm Tai Nạn Cao Cấp
                           </label>
                         </div>
                       </div>
@@ -389,7 +398,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="taiNanCCPhiCoBan_1" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="taiNanCCPhiCoBan_1" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="taiNanCCPhiCoBan_1" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -398,9 +407,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="hoTroVienPhi_1" onchange="handleCheckedWithInputMoney('hoTroVienPhi', 1)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="hoTroVienPhi_1" onchange="handleCheckedWithInputMoney('hoTroVienPhi', 1)">
+                          </div>
                           <label class="form-check-label text-black" for="hoTroVienPhi_1">
-                            HỖ TRỢ VIỆN PHÍ
+                            Bảo Hiểm Hỗ Trợ Viện Phí
                           </label>
                         </div>
                       </div>
@@ -423,7 +434,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="hoTroVienPhiPhiCoBan_1" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="hoTroVienPhiPhiCoBan_1" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="text" class="form-control shadow-sm" id="hoTroVienPhiPhiCoBan_1" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -432,9 +443,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="BHNCaoCap_1" onchange="handleCheckedWithInputMoney('BHNCaoCap', 1)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="BHNCaoCap_1" onchange="handleCheckedWithInputMoney('BHNCaoCap', 1)">
+                          </div>
                           <label class="form-check-label text-black" for="BHNCaoCap_1">
-                            BHN CAO CẤP TOÀN DIỆN
+                            Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện
                           </label>
                         </div>
                       </div>
@@ -446,7 +459,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="BHNCaoCapPhiCoBan_1" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="BHNCaoCapPhiCoBan_1" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="text" class="form-control shadow-sm" id="BHNCaoCapPhiCoBan_1" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -455,9 +468,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="BHUngThu_1" onchange="handleCheckedWithInputMoney('BHUngThu', 1)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="BHUngThu_1" onchange="handleCheckedWithInputMoney('BHUngThu', 1)">
+                          </div>
                           <label class="form-check-label text-black" for="BHUngThu_1">
-                            BẢO HIỂM HỖ TRỢ ĐIỀU TRỊ UNG THƯ
+                            Bảo Hiểm Hỗ Trợ Điều Trị Ung Thư
                           </label>
                         </div>
                       </div>
@@ -469,7 +484,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="BHUngThuPhiCoBan_1" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="BHUngThuPhiCoBan_1" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="text" class="form-control shadow-sm" id="BHUngThuPhiCoBan_1" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -481,7 +496,7 @@ try {
                         <thead class="table-primary">
                           <tr>
                             <th scope="col">QÚY</th>
-                            <th scope="col">NỮA NĂM</th>
+                            <th scope="col">NỬA NĂM</th>
                             <th scope="col">NĂM</th>
                           </tr>
                         </thead>
@@ -558,9 +573,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="noiTru_2" onchange="handleChecked('noiTru', 2)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="noiTru_2" onchange="handleChecked('noiTru', 2)">
+                          </div>
                           <label class="form-check-label text-black" for="noiTru_2">
-                            NỘI TRÚ
+                            Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú
                           </label>
                         </div>
                       </div>
@@ -568,17 +585,17 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="noiTruLuaChon_2" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTruLuaChon_2" disabled onchange="handleChangeSelect('noiTru', 2)">
-                            <option value="co_ban">Cơ bản</option>
+                            <option value="co_ban">Cơ Bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
-                            <option value="cao_cap">Cao cấp</option>
-                            <option value="thinh_vuong">Thịnh vượng</option>
+                            <option value="cao_cap">Cao Cấp</option>
+                            <option value="thinh_vuong">Thịnh Vượng</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div id="noiTruWrapperPhiCoBan_2" class="mb-3 d-flex flex-column justify-content-start d-none">
-                          <label for="noiTruPhiCoBan_2" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="noiTruPhiCoBan_2" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="noiTruPhiCoBan_2" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -587,9 +604,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="noiTru20_2" onchange="handleChecked('noiTru20', 2)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="noiTru20_2" onchange="handleChecked('noiTru20', 2)">
+                          </div>
                           <label class="form-check-label text-black" for="noiTru20_2">
-                            NỘI TRÚ ĐỒNG CHI TRẢ 20%
+                            Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú đồng chi trả 20% (dưới 6 tuổi mặc định đồng chi trả 30%)
                           </label>
                         </div>
                       </div>
@@ -597,17 +616,17 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="noiTru20LuaChon_2" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTru20LuaChon_2" disabled onchange="handleChangeSelect('noiTru20', 2)">
-                            <option value="co_ban">Cơ bản</option>
+                            <option value="co_ban">Cơ Bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
-                            <option value="cao_cap">Cao cấp</option>
-                            <option value="thinh_vuong">Thịnh vượng</option>
+                            <option value="cao_cap">Cao Cấp</option>
+                            <option value="thinh_vuong">Thịnh Vượng</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div id="noiTru20WrapperPhiCoBan_2" class="mb-3 d-flex flex-column justify-content-start d-none">
-                          <label for="noiTru20PhiCoBan_2" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="noiTru20PhiCoBan_2" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="noiTru20PhiCoBan_2" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -616,9 +635,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="ngoaiTru_2" onchange="handleChecked('ngoaiTru', 2)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="ngoaiTru_2" onchange="handleChecked('ngoaiTru', 2)">
+                          </div>
                           <label class="form-check-label text-black" for="ngoaiTru_2">
-                            NGOẠI TRÚ
+                            Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi ngoại trú
                           </label>
                         </div>
                       </div>
@@ -626,17 +647,17 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngoaiTruLuaChon_2" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="ngoaiTruLuaChon_2" disabled onchange="handleChangeSelect('ngoaiTru', 2)">
-                            <option value="co_ban">Cơ bản</option>
+                            <option value="co_ban">Cơ Bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
-                            <option value="cao_cap">Cao cấp</option>
-                            <option value="thinh_vuong">Thịnh vượng</option>
+                            <option value="cao_cap">Cao Cấp</option>
+                            <option value="thinh_vuong">Thịnh Vượng</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div id="ngoaiTruWrapperPhiCoBan_2" class="mb-3 d-flex flex-column justify-content-start d-none">
-                          <label for="ngoaiTruPhiCoBan_2" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="ngoaiTruPhiCoBan_2" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="ngoaiTruPhiCoBan_2" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -645,9 +666,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="taiNanCC_2" onchange="handleCheckedWithInputMoney('taiNanCC', 2)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="taiNanCC_2" onchange="handleCheckedWithInputMoney('taiNanCC', 2)">
+                          </div>
                           <label class="form-check-label text-black" for="taiNanCC_2">
-                            TAI NẠN CC
+                            Bảo Hiểm Tai Nạn Cao Cấp
                           </label>
                         </div>
                       </div>
@@ -659,7 +682,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="taiNanCCPhiCoBan_2" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="taiNanCCPhiCoBan_2" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="taiNanCCPhiCoBan_2" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -668,9 +691,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="hoTroVienPhi_2" onchange="handleCheckedWithInputMoney('hoTroVienPhi', 2)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="hoTroVienPhi_2" onchange="handleCheckedWithInputMoney('hoTroVienPhi', 2)">
+                          </div>
                           <label class="form-check-label text-black" for="hoTroVienPhi_2">
-                            HỖ TRỢ VIỆN PHÍ
+                            Bảo Hiểm Hỗ Trợ Viện Phí
                           </label>
                         </div>
                       </div>
@@ -693,7 +718,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="hoTroVienPhiPhiCoBan_2" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="hoTroVienPhiPhiCoBan_2" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="text" class="form-control shadow-sm" id="hoTroVienPhiPhiCoBan_2" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -702,9 +727,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="BHNCaoCap_2" onchange="handleCheckedWithInputMoney('BHNCaoCap', 2)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="BHNCaoCap_2" onchange="handleCheckedWithInputMoney('BHNCaoCap', 2)">
+                          </div>
                           <label class="form-check-label text-black" for="BHNCaoCap_2">
-                            BHN CAO CẤP TOÀN DIỆN
+                            Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện
                           </label>
                         </div>
                       </div>
@@ -716,7 +743,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="BHNCaoCapPhiCoBan_2" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="BHNCaoCapPhiCoBan_2" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="text" class="form-control shadow-sm" id="BHNCaoCapPhiCoBan_2" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -725,9 +752,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="BHUngThu_2" onchange="handleCheckedWithInputMoney('BHUngThu', 2)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="BHUngThu_2" onchange="handleCheckedWithInputMoney('BHUngThu', 2)">
+                          </div>
                           <label class="form-check-label text-black" for="BHUngThu_2">
-                            BẢO HIỂM HỖ TRỢ ĐIỀU TRỊ UNG THƯ
+                            Bảo Hiểm Hỗ Trợ Điều Trị Ung Thư
                           </label>
                         </div>
                       </div>
@@ -739,7 +768,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="BHUngThuPhiCoBan_2" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="BHUngThuPhiCoBan_2" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="text" class="form-control shadow-sm" id="BHUngThuPhiCoBan_2" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -751,7 +780,7 @@ try {
                         <thead class="table-primary">
                           <tr>
                             <th scope="col">QÚY</th>
-                            <th scope="col">NỮA NĂM</th>
+                            <th scope="col">NỬA NĂM</th>
                             <th scope="col">NĂM</th>
                           </tr>
                         </thead>
@@ -828,9 +857,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="noiTru_3" onchange="handleChecked('noiTru', 3)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="noiTru_3" onchange="handleChecked('noiTru', 3)">
+                          </div>
                           <label class="form-check-label text-black" for="noiTru_3">
-                            NỘI TRÚ
+                            Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú
                           </label>
                         </div>
                       </div>
@@ -838,17 +869,17 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="noiTruLuaChon_3" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTruLuaChon_3" disabled onchange="handleChangeSelect('noiTru', 3)">
-                            <option value="co_ban">Cơ bản</option>
+                            <option value="co_ban">Cơ Bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
-                            <option value="cao_cap">Cao cấp</option>
-                            <option value="thinh_vuong">Thịnh vượng</option>
+                            <option value="cao_cap">Cao Cấp</option>
+                            <option value="thinh_vuong">Thịnh Vượng</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div id="noiTruWrapperPhiCoBan_3" class="mb-3 d-flex flex-column justify-content-start d-none">
-                          <label for="noiTruPhiCoBan_3" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="noiTruPhiCoBan_3" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="noiTruPhiCoBan_3" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -857,9 +888,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="noiTru20_3" onchange="handleChecked('noiTru20', 3)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="noiTru20_3" onchange="handleChecked('noiTru20', 3)">
+                          </div>
                           <label class="form-check-label text-black" for="noiTru20_3">
-                            NỘI TRÚ ĐỒNG CHI TRẢ 20%
+                            Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú đồng chi trả 20% (dưới 6 tuổi mặc định đồng chi trả 30%)
                           </label>
                         </div>
                       </div>
@@ -867,17 +900,17 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="noiTru20LuaChon_3" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTru20LuaChon_3" disabled onchange="handleChangeSelect('noiTru20', 3)">
-                            <option value="co_ban">Cơ bản</option>
+                            <option value="co_ban">Cơ Bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
-                            <option value="cao_cap">Cao cấp</option>
-                            <option value="thinh_vuong">Thịnh vượng</option>
+                            <option value="cao_cap">Cao Cấp</option>
+                            <option value="thinh_vuong">Thịnh Vượng</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div id="noiTru20WrapperPhiCoBan_3" class="mb-3 d-flex flex-column justify-content-start d-none">
-                          <label for="noiTru20PhiCoBan_3" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="noiTru20PhiCoBan_3" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="noiTru20PhiCoBan_3" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -886,9 +919,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="ngoaiTru_3" onchange="handleChecked('ngoaiTru', 3)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="ngoaiTru_3" onchange="handleChecked('ngoaiTru', 3)">
+                          </div>
                           <label class="form-check-label text-black" for="ngoaiTru_3">
-                            NGOẠI TRÚ
+                            Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi ngoại trú
                           </label>
                         </div>
                       </div>
@@ -896,17 +931,17 @@ try {
                         <div class="mb-3 d-flex flex-column justify-content-start">
                           <label for="ngoaiTruLuaChon_3" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="ngoaiTruLuaChon_3" disabled onchange="handleChangeSelect('ngoaiTru', 3)">
-                            <option value="co_ban">Cơ bản</option>
+                            <option value="co_ban">Cơ Bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
-                            <option value="cao_cap">Cao cấp</option>
-                            <option value="thinh_vuong">Thịnh vượng</option>
+                            <option value="cao_cap">Cao Cấp</option>
+                            <option value="thinh_vuong">Thịnh Vượng</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div id="ngoaiTruWrapperPhiCoBan_3" class="mb-3 d-flex flex-column justify-content-start d-none">
-                          <label for="ngoaiTruPhiCoBan_3" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="ngoaiTruPhiCoBan_3" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="ngoaiTruPhiCoBan_3" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -915,9 +950,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="taiNanCC_3" onchange="handleCheckedWithInputMoney('taiNanCC', 3)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="taiNanCC_3" onchange="handleCheckedWithInputMoney('taiNanCC', 3)">
+                          </div>
                           <label class="form-check-label text-black" for="taiNanCC_3">
-                            TAI NẠN CC
+                            Bảo Hiểm Tai Nạn Cao Cấp
                           </label>
                         </div>
                       </div>
@@ -929,7 +966,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="taiNanCCPhiCoBan_3" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="taiNanCCPhiCoBan_3" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="taiNanCCPhiCoBan_3" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -938,9 +975,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="hoTroVienPhi_3" onchange="handleCheckedWithInputMoney('hoTroVienPhi', 3)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="hoTroVienPhi_3" onchange="handleCheckedWithInputMoney('hoTroVienPhi', 3)">
+                          </div>
                           <label class="form-check-label text-black" for="hoTroVienPhi_3">
-                            HỖ TRỢ VIỆN PHÍ
+                            Bảo Hiểm Hỗ Trợ Viện Phí
                           </label>
                         </div>
                       </div>
@@ -963,7 +1002,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="hoTroVienPhiPhiCoBan_3" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="hoTroVienPhiPhiCoBan_3" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="text" class="form-control shadow-sm" id="hoTroVienPhiPhiCoBan_3" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -972,9 +1011,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="BHNCaoCap_3" onchange="handleCheckedWithInputMoney('BHNCaoCap', 3)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="BHNCaoCap_3" onchange="handleCheckedWithInputMoney('BHNCaoCap', 3)">
+                          </div>
                           <label class="form-check-label text-black" for="BHNCaoCap_3">
-                            BHN CAO CẤP TOÀN DIỆN
+                            Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện
                           </label>
                         </div>
                       </div>
@@ -986,7 +1027,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="BHNCaoCapPhiCoBan_3" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="BHNCaoCapPhiCoBan_3" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="text" class="form-control shadow-sm" id="BHNCaoCapPhiCoBan_3" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -995,9 +1036,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="BHUngThu_3" onchange="handleCheckedWithInputMoney('BHUngThu', 3)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="BHUngThu_3" onchange="handleCheckedWithInputMoney('BHUngThu', 3)">
+                          </div>
                           <label class="form-check-label text-black" for="BHUngThu_3">
-                            BẢO HIỂM HỖ TRỢ ĐIỀU TRỊ UNG THƯ
+                            Bảo Hiểm Hỗ Trợ Điều Trị Ung Thư
                           </label>
                         </div>
                       </div>
@@ -1009,7 +1052,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="BHUngThuPhiCoBan_3" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="BHUngThuPhiCoBan_3" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="text" class="form-control shadow-sm" id="BHUngThuPhiCoBan_3" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -1021,7 +1064,7 @@ try {
                         <thead class="table-primary">
                           <tr>
                             <th scope="col">QÚY</th>
-                            <th scope="col">NỮA NĂM</th>
+                            <th scope="col">NỬA NĂM</th>
                             <th scope="col">NĂM</th>
                           </tr>
                         </thead>
@@ -1102,9 +1145,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="noiTru_4" onchange="handleChecked('noiTru', 4)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="noiTru_4" onchange="handleChecked('noiTru', 4)">
+                          </div>
                           <label class="form-check-label text-black" for="noiTru_4">
-                            NỘI TRÚ
+                            Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú
                           </label>
                         </div>
                       </div>
@@ -1113,17 +1158,17 @@ try {
                           <label for="noiTruLuaChon_4" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTruLuaChon_4" disabled
                             onchange="handleChangeSelect('noiTru', 4)">
-                            <option value="co_ban">Cơ bản</option>
+                            <option value="co_ban">Cơ Bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
-                            <option value="cao_cap">Cao cấp</option>
-                            <option value="thinh_vuong">Thịnh vượng</option>
+                            <option value="cao_cap">Cao Cấp</option>
+                            <option value="thinh_vuong">Thịnh Vượng</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div id="noiTruWrapperPhiCoBan_4" class="mb-3 d-flex flex-column justify-content-start d-none">
-                          <label for="noiTruPhiCoBan_4" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="noiTruPhiCoBan_4" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="noiTruPhiCoBan_4" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -1132,10 +1177,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="noiTru20_4"
-                            onchange="handleChecked('noiTru20', 4)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="noiTru20_4" onchange="handleChecked('noiTru20', 4)">
+                          </div>
                           <label class="form-check-label text-black" for="noiTru20_4">
-                            NỘI TRÚ ĐỒNG CHI TRẢ 20%
+                            Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú đồng chi trả 20% (dưới 6 tuổi mặc định đồng chi trả 30%)
                           </label>
                         </div>
                       </div>
@@ -1144,17 +1190,17 @@ try {
                           <label for="noiTru20LuaChon_4" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="noiTru20LuaChon_4" disabled
                             onchange="handleChangeSelect('noiTru20', 4)">
-                            <option value="co_ban">Cơ bản</option>
+                            <option value="co_ban">Cơ Bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
-                            <option value="cao_cap">Cao cấp</option>
-                            <option value="thinh_vuong">Thịnh vượng</option>
+                            <option value="cao_cap">Cao Cấp</option>
+                            <option value="thinh_vuong">Thịnh Vượng</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div id="noiTru20WrapperPhiCoBan_4" class="mb-3 d-flex flex-column justify-content-start d-none">
-                          <label for="noiTru20PhiCoBan_4" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="noiTru20PhiCoBan_4" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="noiTru20PhiCoBan_4" aria-describedby="emailHelp"
                             disabled>
                         </div>
@@ -1164,10 +1210,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="ngoaiTru_4"
-                            onchange="handleChecked('ngoaiTru', 4)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="ngoaiTru_4" onchange="handleChecked('ngoaiTru', 4)">
+                          </div>
                           <label class="form-check-label text-black" for="ngoaiTru_4">
-                            NGOẠI TRÚ
+                            Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi ngoại trú
                           </label>
                         </div>
                       </div>
@@ -1176,17 +1223,17 @@ try {
                           <label for="ngoaiTruLuaChon_4" class="form-label m-0 text-start text-label">Lựa chọn</label>
                           <select class="form-select" aria-label="Default select example" id="ngoaiTruLuaChon_4" disabled
                             onchange="handleChangeSelect('ngoaiTru', 4)">
-                            <option value="co_ban">Cơ bản</option>
+                            <option value="co_ban">Cơ Bản</option>
                             <option value="pho_thong" selected>Phổ Thông</option>
                             <option value="dac_biet">Đặc Biệt</option>
-                            <option value="cao_cap">Cao cấp</option>
-                            <option value="thinh_vuong">Thịnh vượng</option>
+                            <option value="cao_cap">Cao Cấp</option>
+                            <option value="thinh_vuong">Thịnh Vượng</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-4">
                         <div id="ngoaiTruWrapperPhiCoBan_4" class="mb-3 d-flex flex-column justify-content-start d-none">
-                          <label for="ngoaiTruPhiCoBan_4" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="ngoaiTruPhiCoBan_4" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="ngoaiTruPhiCoBan_4" aria-describedby="emailHelp"
                             disabled>
                         </div>
@@ -1196,10 +1243,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="taiNanCC_4"
-                            onchange="handleCheckedWithInputMoney('taiNanCC', 4)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="taiNanCC_4" onchange="handleCheckedWithInputMoney('taiNanCC', 4)">
+                          </div>
                           <label class="form-check-label text-black" for="taiNanCC_4">
-                            TAI NẠN CC
+                            Bảo Hiểm Tai Nạn Cao Cấp
                           </label>
                         </div>
                       </div>
@@ -1212,7 +1260,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="taiNanCCPhiCoBan_4" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="taiNanCCPhiCoBan_4" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="email" class="form-control shadow-sm" id="taiNanCCPhiCoBan_4" aria-describedby="emailHelp"
                             disabled>
                         </div>
@@ -1222,10 +1270,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="hoTroVienPhi_4"
-                            onchange="handleCheckedWithInputMoney('hoTroVienPhi', 4)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="hoTroVienPhi_4" onchange="handleCheckedWithInputMoney('hoTroVienPhi', 4)">
+                          </div>
                           <label class="form-check-label text-black" for="hoTroVienPhi_4">
-                            HỖ TRỢ VIỆN PHÍ
+                            Bảo Hiểm Hỗ Trợ Viện Phí
                           </label>
                         </div>
                       </div>
@@ -1249,7 +1298,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="hoTroVienPhiPhiCoBan_4" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="hoTroVienPhiPhiCoBan_4" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="text" class="form-control shadow-sm" id="hoTroVienPhiPhiCoBan_4" aria-describedby="emailHelp"
                             disabled>
                         </div>
@@ -1259,10 +1308,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="BHNCaoCap_4"
-                            onchange="handleCheckedWithInputMoney('BHNCaoCap', 4)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="BHNCaoCap_4" onchange="handleCheckedWithInputMoney('BHNCaoCap', 4)">
+                          </div>
                           <label class="form-check-label text-black" for="BHNCaoCap_4">
-                            BHN CAO CẤP TOÀN DIỆN
+                            Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện
                           </label>
                         </div>
                       </div>
@@ -1275,7 +1325,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="BHNCaoCapPhiCoBan_4" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="BHNCaoCapPhiCoBan_4" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="text" class="form-control shadow-sm" id="BHNCaoCapPhiCoBan_4" aria-describedby="emailHelp"
                             disabled>
                         </div>
@@ -1285,10 +1335,11 @@ try {
                     <div class="row mt-2 d-flex align-items-center">
                       <div class="col-sm-4">
                         <div class="form-check mb-3 d-flex justify-content-start align-items-center gap-2">
-                          <input class="form-check-input" type="checkbox" value="" id="BHUngThu_4"
-                            onchange="handleCheckedWithInputMoney('BHUngThu', 4)">
+                          <div>
+                            <input class="form-check-input" type="checkbox" value="" id="BHUngThu_4" onchange="handleCheckedWithInputMoney('BHUngThu', 4)">
+                          </div>
                           <label class="form-check-label text-black" for="BHUngThu_4">
-                            BẢO HIỂM HỖ TRỢ ĐIỀU TRỊ UNG THƯ
+                            Bảo Hiểm Hỗ Trợ Điều Trị Ung Thư
                           </label>
                         </div>
                       </div>
@@ -1301,7 +1352,7 @@ try {
                       </div>
                       <div class="col-sm-4">
                         <div class="mb-3 d-flex flex-column justify-content-start">
-                          <label for="BHUngThuPhiCoBan_4" class="form-label m-0 text-start text-label">Phi cơ bản</label>
+                          <label for="BHUngThuPhiCoBan_4" class="form-label m-0 text-start text-label">Phí cơ bản</label>
                           <input type="text" class="form-control shadow-sm" id="BHUngThuPhiCoBan_4" aria-describedby="emailHelp" disabled>
                         </div>
                       </div>
@@ -1313,7 +1364,7 @@ try {
                         <thead class="table-primary">
                           <tr>
                             <th scope="col">QÚY</th>
-                            <th scope="col">NỮA NĂM</th>
+                            <th scope="col">NỬA NĂM</th>
                             <th scope="col">NĂM</th>
                           </tr>
                         </thead>
