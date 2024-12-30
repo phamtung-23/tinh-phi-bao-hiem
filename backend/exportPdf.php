@@ -118,8 +118,8 @@ $tableBoSungHtml_1 = "";
 if ($dataFormBoSung1['hoVaTen_2'] !== "" && $dataFormBoSung1['gioiTinh_2'] !== "" && $dataFormBoSung1['nhomNghe_2'] !== "") {
     $tableBoSungHtml_1 .= "
         <div>
-            <h3 class='highlight_blue'>II. NGƯỜI ĐƯỢC BẢO HIỂM BỔ SUNG 1</h3>
-            <table class='avoid-page-break'>
+            <h5 class='highlight_blue'>II. NGƯỜI ĐƯỢC BẢO HIỂM BỔ SUNG 1</h5>
+            <table class='avoid-page-break text-size'>
                 <tr>
                     <th>Họ và tên</th>
                     <th class='highlight_blue'>Giới tính</th>
@@ -128,13 +128,13 @@ if ($dataFormBoSung1['hoVaTen_2'] !== "" && $dataFormBoSung1['gioiTinh_2'] !== "
                 </tr>
                 <tr>
                     <td>{$dataFormBoSung1['hoVaTen_2']}</td>
-                    <td>{$dataFormBoSung1['gioiTinh_2']}</td>
+                    <td>". getGender($dataFormBoSung1['gioiTinh_2'])."</td>
                     <td>" . extractAge($dataFormBoSung1['tuoi_2']) . "</td>
                     <td>{$dataFormBoSung1['nhomNghe_2']}</td>
                 </tr>
             </table>
             <br/>
-            <table class='avoid-page-break'>
+            <table class='avoid-page-break text-size'>
                 <tr class='section-title'>
                     <td class='title-table border-bottom highlight_blue' style='width: 40%;'>Quyền lợi bổ sung</td>
                     <td class='title-table border-bottom highlight_blue'>Lựa chọn</td>
@@ -223,8 +223,8 @@ $tableBoSungHtml_2 = "";
 if ($dataFormBoSung2['hoVaTen_3'] !== "" && $dataFormBoSung2['gioiTinh_3'] !== "" && $dataFormBoSung2['nhomNghe_3'] !== "") {
     $tableBoSungHtml_2 .= "
         <div>
-            <h3 class='highlight_blue'>III. NGƯỜI ĐƯỢC BẢO HIỂM BỔ SUNG 2</h3>
-            <table class='avoid-page-break'>
+            <h5 class='highlight_blue'>III. NGƯỜI ĐƯỢC BẢO HIỂM BỔ SUNG 2</h5>
+            <table class='avoid-page-break text-size'>
                 <tr>
                     <th>Họ và tên</th>
                     <th class='highlight_blue'>Giới tính</th>
@@ -233,13 +233,13 @@ if ($dataFormBoSung2['hoVaTen_3'] !== "" && $dataFormBoSung2['gioiTinh_3'] !== "
                 </tr>
                 <tr>
                     <td>{$dataFormBoSung2['hoVaTen_3']}</td>
-                    <td>{$dataFormBoSung2['gioiTinh_3']}</td>
+                    <td>". getGender($dataFormBoSung2['gioiTinh_3'])."</td>
                     <td>" . extractAge($dataFormBoSung2['tuoi_3']) . "</td>
                     <td>{$dataFormBoSung2['nhomNghe_3']}</td>
                 </tr>
             </table>
             <br/>
-            <table class='avoid-page-break'>
+            <table class='avoid-page-break text-size'>
                 <tr class='section-title'>
                     <td class='title-table border-bottom highlight_blue' style='width: 40%;'>Quyền lợi bổ sung</td>
                     <td class='title-table border-bottom highlight_blue'>Lựa chọn</td>
@@ -328,8 +328,8 @@ $tableBoSungHtml_3 = "";
 if ($dataFormBoSung3['hoVaTen_4'] !== "" && $dataFormBoSung3['gioiTinh_4'] !== "" && $dataFormBoSung3['nhomNghe_4'] !== "") {
     $tableBoSungHtml_3 .= "
         <div>
-            <h3 class='highlight_blue'>IV. NGƯỜI ĐƯỢC BẢO HIỂM BỔ SUNG 3</h3>
-            <table class='avoid-page-break'>
+            <h5 class='highlight_blue'>IV. NGƯỜI ĐƯỢC BẢO HIỂM BỔ SUNG 3</h5>
+            <table class='avoid-page-break text-size'>
                 <tr>
                     <th>Họ và tên</th>
                     <th class='highlight_blue'>Giới tính</th>
@@ -338,13 +338,13 @@ if ($dataFormBoSung3['hoVaTen_4'] !== "" && $dataFormBoSung3['gioiTinh_4'] !== "
                 </tr>
                 <tr>
                     <td>{$dataFormBoSung3['hoVaTen_4']}</td>
-                    <td>{$dataFormBoSung3['gioiTinh_4']}</td>
+                    <td>". getGender($dataFormBoSung3['gioiTinh_4'])."</td>
                     <td>" . extractAge($dataFormBoSung3['tuoi_4']) . "</td>
                     <td>{$dataFormBoSung3['nhomNghe_4']}</td>
                 </tr>
             </table>
             <br/>
-            <table class='avoid-page-break'>
+            <table class='avoid-page-break text-size'>
                 <tr class='section-title'>
                     <td class='title-table border-bottom highlight_blue' style='width: 40%;'>Quyền lợi bổ sung</td>
                     <td class='title-table border-bottom highlight_blue'>Lựa chọn</td>
@@ -431,18 +431,24 @@ if ($dataFormBoSung3['hoVaTen_4'] !== "" && $dataFormBoSung3['gioiTinh_4'] !== "
 
 
 // Tạo nội dung HTML cho template
+// font-family: 'DejaVuSans', sans-serif;
 $htmlContent = "
 <!DOCTYPE html>
 <html lang='vi'>
 <head>
-    <meta charset='UTF-8'>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
     <title>Daichi</title>
     <script src='https://unpkg.com/@phosphor-icons/web'></script>
     <style>
         body {
             margin: 10px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .custom-font {
+            font-family: 'Times New Roman', Times, serif;
         }
         table {
+            table-layout: fixed;
             width: 100%;
             border-collapse: collapse;
         }
@@ -515,15 +521,18 @@ $htmlContent = "
         .highlight_khongapdung {
             background-color: #ddd;
         }
+        .text-size {
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>
     <div>
-        <h2 style='text-align: center;'>BẢNG TÓM TẮT QUYỀN LỢI BẢO HIỂM DAI-ICHI</h2>
-        <h4 style='text-align: center;'>TÊN SẢN PHẨM: AN TÂM SONG HÀNH</h4>
+        <h3 style='text-align: center;'>BẢNG TÓM TẮT QUYỀN LỢI BẢO HIỂM DAI-ICHI</h3>
+        <h4 style='text-align: center;'>Tên sản phẩm: <span style='font-size: 18px;'>" . getFullNameBH($dataFormChinh['goiBaoHiem']) . "</span></h4>
 
-        <h3 class='highlight_blue'>I. NGƯỜI ĐƯỢC BẢO HIỂM CHÍNH</h3>
-        <table>
+        <h5 class='highlight_blue'>I. NGƯỜI ĐƯỢC BẢO HIỂM CHÍNH</h5>
+        <table class='text-size'>
             <tr>
                 <th>Họ và tên</th>
                 <th class='highlight_blue'>Giới tính</th>
@@ -532,13 +541,13 @@ $htmlContent = "
             </tr>
             <tr>
                 <td>{$dataFormChinh['hoVaTen_1']}</td>
-                <td>{$dataFormChinh['gioiTinh_1']}</td>
+                <td>". getGender($dataFormChinh['gioiTinh_1'])."</td>
                 <td>" . extractAge($dataFormChinh['tuoi_1']) . "</td>
                 <td>{$dataFormChinh['nhomNghe_1']}</td>
             </tr>
         </table>
         <br/>
-        <table>
+        <table class='text-size'>
             <tr style='border-bottom: 2px solid #000;'>
                 <th>Sản phẩm</th>
                 <th class='highlight_blue'>Thời hạn (năm)</th>
@@ -550,7 +559,7 @@ $htmlContent = "
                 <td colspan='5' style='text-align: start;'>Sản phẩm chính</td>
             </tr>
             <tr>
-                <td>" . getFullNameBH($dataFormChinh['goiBaoHiem']) . "</td>
+                <td class='custom-font'>" . getFullNameBH($dataFormChinh['goiBaoHiem']) . "</td>
                 <td>{$dataFormChinh['thoiHan']}</td>
                 <td>{$dataFormChinh['thoiHanDongDuKien']}</td>
                 <td>{$dataFormChinh['soTienBaoHiem_1']}</td>
@@ -583,12 +592,12 @@ $htmlContent = "
     <br/>
 
     <div>
-        <h3>TỔNG PHÍ BẢO HIỂM (ĐỒNG)</h3>
-        <table>
+        <h5>TỔNG PHÍ BẢO HIỂM (ĐỒNG)</h5>
+        <table class='text-size'>
             <tr class='section-title'>
-                <td class='title-table border-bottom highlight_blue'>QUÝ</td>
-                <td class='title-table border-bottom highlight_blue'>NỮA NĂM</td>
-                <td class='title-table border-bottom highlight_blue'>NĂM</td>
+                <td class='title-table border-bottom highlight_blue custom-font' style='font-size: 14px;'>Quý</td>
+                <td class='title-table border-bottom highlight_blue custom-font' style='font-size: 14px;'>Nửa năm</td>
+                <td class='title-table border-bottom highlight_blue custom-font' style='font-size: 14px;'>Năm</td>
             </tr>
 
             <tr>
@@ -601,23 +610,23 @@ $htmlContent = "
 
     <div class='page-break'></div> <!-- Page break here -->
 
-    <div>
+    <div class='text-size'>
         <p class='note'>* Lưu ý: Thời hạn đóng phí dự tính có thể khác với thời hạn hợp đồng, thời hạn đóng phí tối thiểu thông thường là 10 năm, nếu đóng chưa đủ 10 năm hủy hợp đồng thì sẽ rút được rất ít so với số tiền đã đóng cho cty bảo hiểm.</p>
 
-        <h3>QUYỀN LỢI BẢO HIỂM CHÍNH</h3>
+        <h5>QUYỀN LỢI BẢO HIỂM CHÍNH</h5>
         <ul>
-            <li><span>Quyền lợi tử vong do tai nạn:</span> Nhận thêm tới đa 50% STBH của sản phẩm chính, tức = <span>{$dataFormChinh['soTienBaoHiem_1']}/2 = {$BHMoney}</span></li>
-            <li><span>Quyền lợi tử vong không do tai nạn:</span> Nhận giá trị lớn của = <span>{$dataFormChinh['soTienBaoHiem_1']}</span></li>
-            <li><span>Quyền lợi thương tật toàn bộ vĩnh viễn:</span> Nhận giá trị lớn của = <span>{$dataFormChinh['soTienBaoHiem_1']}</span></li>
-            <li>Quyền lợi cho toàn hậu sự: Nhận trước 10% QLBH từ vong tối đa 30 triệu</li>
-            <li>Quyền lợi gia tăng số tiền bảo hiểm: Vào dịp đặc biệt được tăng 50% số tiền bảo hiểm tối đa 500 triệu</li>
+            <li>Quyền lợi tử vong do tai nạn: Nhận thêm tối đa 50% STBH của sản phẩm chính</li>
+            <li>Quyền lợi tử vong không do tai nạn: Nhận giá trị lớn hơn của STBH sp chính và GTTK, hoặc cả 2 tùy trường hợp.</li>
+            <li>Quyền lợi thương tật toàn bộ vĩnh viễn: Nhận giá trị lớn hơn của STBH sp chính và GTTK, hoặc cả 2 tuỳ trường hợp.</li>
+            <li>Quyền lợi chu toàn hậu sự: Nhận trước 10% QLBH tử vong tối đa 30 triệu</li> 
+            <li>Quyền lợi gia tăng số tiền bảo hiểm: Vào dịp đặc biệt được tăng 50% số tiền bảo hiểm tối đa 500 triệu</li> 
             <li>Quyền lợi thưởng duy trì hợp đồng</li>
-            <li>Quyền lợi thường gắn bó dài lâu</li>
+            <li>Quyền lợi thưởng gắn bó dài lâu</li>
             <li>Quyền lợi đáo hạn</li>
         </ul>".
         (
             $isBHTNCaoCap ? 
-            "<h3>QUYỀN LỢI BẢO HIỂM TAI NẠN CAO CẤP</h3>
+            "<h5>QUYỀN LỢI BẢO HIỂM TAI NẠN CAO CẤP</h5>
             <ul>
                 <li>Quyền lợi tử vong do tai nạn lên đến 200% số tiền bảo hiểm</li>
                 <li>Quyền lợi do tai nạn: nhận tỷ lệ % STBH dựa trên sự kiện và tỷ lệ thanh</li>
@@ -626,7 +635,7 @@ $htmlContent = "
         ."".
         (
             $isBHHoTroVienPhi ? 
-            "<h3>QUYỀN LỢI BẢO HIỂM HỖ TRỢ VIỆN PHÍ</h3>
+            "<h5>QUYỀN LỢI BẢO HIỂM HỖ TRỢ VIỆN PHÍ</h5>
             <ul>
                 <li>Quyền lợi bảo hiểm hỗ trợ viện phí</li>
                 <li>Quyền lợi hỗ trợ chi phí điều trị tại khoa/phòng hồi sức đặc biệt</li>
@@ -638,7 +647,7 @@ $htmlContent = "
         ."".
         (
             $isBHHoTroDieuTriUngThu ? 
-            "<h3>QUYỀN LỢI BẢO HIỂM HỖ TRỢ ĐIỀU TRỊ UNG THƯ</h3>
+            "<h5>QUYỀN LỢI BẢO HIỂM HỖ TRỢ ĐIỀU TRỊ UNG THƯ</h5>
             <ul>
                 <li>Nhận tối đa 150% số tiền bảo hiểm</li>
                 <li>Quyền lợi trợ cấp nằm viện 0,2% STBH cho mỗi ngày nằm viện điều trị ung thư, không vượt quá 2 triệu đồng mỗi ngày nằm</li> 
@@ -648,7 +657,7 @@ $htmlContent = "
         )
         ."".
         (
-            $isBHSucKhoeToanCau24_7 ? "<h3>QUYỀN LỢI BẢO HIỂM CHĂM SÓC SỨC KHỎE TOÀN CẦU 24/7</h3>":""
+            $isBHSucKhoeToanCau24_7 ? "<h5>QUYỀN LỢI BẢO HIỂM CHĂM SÓC SỨC KHỎE TOÀN CẦU 24/7</h5>":""
         )."
     </div>
     ".
@@ -656,9 +665,9 @@ $htmlContent = "
         $isBHSucKhoeToanCau24_7 ? "
             <div class='page-break'></div> <!-- Page break here -->
             <div>
-                <h2>Bảng Quyền Lợi Bảo Hiểm Của Sản Phẩm Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7</h2>
-                <p>Chi trả chi phí y tế của NĐBH. Chi tiết quyền lợi bảo hiểm tương ứng theo Chương trình bảo hiểm.</p>
-                <table class='table-BHTC'>
+                <h4>Bảng Quyền Lợi Bảo Hiểm Của Sản Phẩm Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7</h4>
+                <p class='text-size'>Chi trả chi phí y tế của NĐBH. Chi tiết quyền lợi bảo hiểm tương ứng theo Chương trình bảo hiểm.</p>
+                <table class='table-BHTC text-size'>
                     <tr>
                         <th colspan='2'>CHƯƠNG TRÌNH BẢO HIỂM</th>
                         <th class='highlight_coban'>CƠ BẢN</th>
@@ -682,7 +691,7 @@ $htmlContent = "
                         <td colspan='5'>trong suốt thời gian tham gia sản phẩm này</td>
                     </tr>
                 </table>
-                <table class='table-BHTC' style='margin-top: 5px;'>
+                <table class='table-BHTC text-size' style='margin-top: 5px;'>
                     <tr>
                         <td colspan='2' rowspan='2' class='section-title' style='text-align: start;'>A. QUYỀN LỢI ĐIỀU TRỊ NỘI TRÚ</td>
                         <td colspan='5' class='section-title'>MỨC GIỚI HẠN PHỤ</td>
@@ -804,7 +813,7 @@ $htmlContent = "
                 </table>
                 <br/>
                 <div class='page-break'></div> <!-- Page break here -->
-                <table class='table-BHTC' style='margin-top: 5px;'>
+                <table class='table-BHTC text-size' style='margin-top: 5px;'>
                     <tr>
                         <td colspan='2' rowspan='2' class='section-title' style='text-align: start;'>A. QUYỀN LỢI ĐIỀU TRỊ NỘI TRÚ</td>
                         <td colspan='5' class='section-title'>MỨC GIỚI HẠN PHỤ</td>
@@ -927,10 +936,10 @@ $htmlContent = "
             <div class='page-break'></div> <!-- Page break here -->
             <div>
                 <div>
-                    <h3 style='display: inline;'>QUYỀN LỢI LỰA CHỌN THÊM: <i style='display: inline; font-weight: normal; font-size: 13px;'>(tùy theo lựa chọn của Bên mua bảo hiểm)</i></h3>
+                    <h4 class='text-size' style='display: inline;'>QUYỀN LỢI LỰA CHỌN THÊM: <i style='display: inline; font-weight: normal; font-size: 12px;'>(tùy theo lựa chọn của Bên mua bảo hiểm)</i></h4>
                     
                 </div>
-                <table class='table-BHTC' style='margin-top: 5px;'>
+                <table class='table-BHTC text-size' style='margin-top: 5px;'>
                     <tr>
                         <td colspan='2' rowspan='2' class='section-title' style='text-align: start;'>B. QUYỀN LỢI ĐIỀU TRỊ NGOẠI TRÚ</td>
                         <td colspan='5' class='section-title'>MỨC GIỚI HẠN PHỤ</td>
@@ -1004,7 +1013,7 @@ $htmlContent = "
                         <td colspan='2'>Chi phí y tế thực tế</td>
                     </tr>
                 </table>
-                <div class='note-container'>
+                <div class='note-container text-size'>
                     <p><i><strong>Lưu ý:</strong> Thời gian chờ là thời gian mà các sự kiện bảo hiểm của Quyền lợi Điều trị nội trú và/hoặc Quyền lợi Điều trị ngoại trú và/hoặc Quyền lợi Chăm sóc răng do Bệnh xảy ra không được chi trả (trừ trường hợp có thỏa thuận khác giữa Dai-ichi Life Việt Nam và Bên mua bảo hiểm). Thời gian chờ này được áp dụng như sau:</i></p>
                     <ul class='nested-list' style='list-style-type:none'>
                         <li><i>(i) 30 (ba mươi) ngày tính từ ngày bắt đầu Thời hạn bảo hiểm; hoặc 10 (mười) ngày tính từ ngày Dai-ichi Life Việt Nam chấp nhận khôi phục hiệu lực gần nhất của sản phẩm bảo hiểm này; tùy vào sự kiện nào diễn ra trễ hơn.</i></li>
@@ -1032,6 +1041,7 @@ try {
         'margin_bottom' => 10,
         'margin_left' => 10,
         'margin_right' => 10,
+        'shrink_tables_to_fit' => 0
     ]);
     // Optional: force page breaks if you need
     $mpdf->SetAutoPageBreak(true, 30);
@@ -1044,7 +1054,7 @@ try {
     $footerHtml = "
         <table style='font-size: 12px; font-weight: normal; width: 100%; background-color: #fff;'>
             <tr>
-                <td colspan='2' style='font-weight: normal; text-align: start; color:  #929292;'>Nhân viên tư vấn: {$nhanVienTuVan}</td>
+                <td colspan='2' style='font-weight: normal; text-align: start; color:  #929292;'>Chuyên viên tư vấn: {$nhanVienTuVan}</td>
             </tr>
             <tr>
                 <td style='font-weight: normal; text-align: start; color: #929292;'>Số điện thoại: {$sdt}</td>
@@ -1066,7 +1076,8 @@ try {
     // Trả về đường dẫn file PDF
     echo json_encode([
         'success' => true,
-        'pdfUrl' => 'exports/' . $pdfFileName
+        'pdfUrl' => 'exports/' . $pdfFileName,
+        'fileName' => $pdfFileName
     ]);
 } catch (\Mpdf\MpdfException $e) {
     // Xử lý lỗi mPDF

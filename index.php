@@ -109,7 +109,7 @@ try {
       </div>
       <div class="col-sm-3 d-flex justify-content-start p-2">
         <div class=" d-flex flex-column justify-content-start">
-          <label for="nhanVienTuVan" class="form-label m-0 text-start text-label text-secondary">Nhân viên tư vấn:</label>
+          <label for="nhanVienTuVan" class="form-label m-0 text-start text-label text-secondary">Chuyên viên tư vấn:</label>
           <input type="text" class="form-control shadow-sm" id="nhanVienTuVan" name="nhanVienTuVan" placeholder="" aria-describedby="emailHelp">
         </div>
       </div>
@@ -121,7 +121,7 @@ try {
       </div>
       <div class="col-sm-3 d-flex justify-content-start p-2">
         <div class=" d-flex flex-column justify-content-start">
-          <label for="vanPhong" class="form-label m-0 text-start text-label text-secondary">Văng phòng:</label>
+          <label for="vanPhong" class="form-label m-0 text-start text-label text-secondary">Văn phòng:</label>
           <input type="text" class="form-control shadow-sm" id="vanPhong" name="vanPhong" placeholder="" aria-describedby="emailHelp">
         </div>
       </div>
@@ -324,7 +324,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="noiTru_1" name="noiTru_1" onchange="handleChecked('noiTru', 1)">
                           </div>
-                          <label class="form-check-label text-black" for="noiTru_1">
+                          <label class="form-check-label text-black text-start" for="noiTru_1">
                             Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú
                           </label>
                         </div>
@@ -355,7 +355,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="noiTru20_1" name="noiTru20_1" onchange="handleChecked('noiTru20', 1)">
                           </div>
-                          <label class="form-check-label text-black" for="noiTru20_1">
+                          <label class="form-check-label text-black text-start" for="noiTru20_1">
                             Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú đồng chi trả 20% (dưới 6 tuổi mặc định đồng chi trả 30%)
                           </label>
                         </div>
@@ -386,7 +386,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="ngoaiTru_1" name="ngoaiTru_1" onchange="handleChecked('ngoaiTru', 1)">
                           </div>
-                          <label class="form-check-label text-black" for="ngoaiTru_1">
+                          <label class="form-check-label text-black text-start" for="ngoaiTru_1">
                             Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi ngoại trú
                           </label>
                         </div>
@@ -417,7 +417,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="taiNanCC_1" name="taiNanCC_1" onchange="handleCheckedWithInputMoney('taiNanCC', 1)">
                           </div>
-                          <label class="form-check-label text-black" for="taiNanCC_1">
+                          <label class="form-check-label text-black text-start" for="taiNanCC_1">
                             Bảo Hiểm Tai Nạn Cao Cấp
                           </label>
                         </div>
@@ -442,7 +442,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="hoTroVienPhi_1" name="hoTroVienPhi_1" onchange="handleCheckedWithInputMoney('hoTroVienPhi', 1)">
                           </div>
-                          <label class="form-check-label text-black" for="hoTroVienPhi_1">
+                          <label class="form-check-label text-black text-start" for="hoTroVienPhi_1">
                             Bảo Hiểm Hỗ Trợ Viện Phí
                           </label>
                         </div>
@@ -478,7 +478,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="BHNCaoCap_1" name="BHNCaoCap_1" onchange="handleCheckedWithInputMoney('BHNCaoCap', 1)">
                           </div>
-                          <label class="form-check-label text-black" for="BHNCaoCap_1">
+                          <label class="form-check-label text-black text-start" for="BHNCaoCap_1">
                             Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện
                           </label>
                         </div>
@@ -503,7 +503,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="BHUngThu_1" name="BHUngThu_1" onchange="handleCheckedWithInputMoney('BHUngThu', 1)">
                           </div>
-                          <label class="form-check-label text-black" for="BHUngThu_1">
+                          <label class="form-check-label text-black text-start" for="BHUngThu_1">
                             Bảo Hiểm Hỗ Trợ Điều Trị Ung Thư
                           </label>
                         </div>
@@ -608,7 +608,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="noiTru_2" name="noiTru_2" onchange="handleChecked('noiTru', 2)">
                           </div>
-                          <label class="form-check-label text-black" for="noiTru_2">
+                          <label class="form-check-label text-black text-start" for="noiTru_2">
                             Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú
                           </label>
                         </div>
@@ -639,7 +639,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="noiTru20_2" name="noiTru20_2" onchange="handleChecked('noiTru20', 2)">
                           </div>
-                          <label class="form-check-label text-black" for="noiTru20_2">
+                          <label class="form-check-label text-black text-start" for="noiTru20_2">
                             Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú đồng chi trả 20% (dưới 6 tuổi mặc định đồng chi trả 30%)
                           </label>
                         </div>
@@ -670,7 +670,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="ngoaiTru_2" name="ngoaiTru_2" onchange="handleChecked('ngoaiTru', 2)">
                           </div>
-                          <label class="form-check-label text-black" for="ngoaiTru_2">
+                          <label class="form-check-label text-black text-start" for="ngoaiTru_2">
                             Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi ngoại trú
                           </label>
                         </div>
@@ -701,7 +701,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="taiNanCC_2" name="taiNanCC_2" onchange="handleCheckedWithInputMoney('taiNanCC', 2)">
                           </div>
-                          <label class="form-check-label text-black" for="taiNanCC_2">
+                          <label class="form-check-label text-black text-start" for="taiNanCC_2">
                             Bảo Hiểm Tai Nạn Cao Cấp
                           </label>
                         </div>
@@ -726,7 +726,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="hoTroVienPhi_2" name="hoTroVienPhi_2" onchange="handleCheckedWithInputMoney('hoTroVienPhi', 2)">
                           </div>
-                          <label class="form-check-label text-black" for="hoTroVienPhi_2">
+                          <label class="form-check-label text-black text-start" for="hoTroVienPhi_2">
                             Bảo Hiểm Hỗ Trợ Viện Phí
                           </label>
                         </div>
@@ -762,7 +762,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="BHNCaoCap_2" name="BHNCaoCap_2" onchange="handleCheckedWithInputMoney('BHNCaoCap', 2)">
                           </div>
-                          <label class="form-check-label text-black" for="BHNCaoCap_2">
+                          <label class="form-check-label text-black text-start" for="BHNCaoCap_2">
                             Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện
                           </label>
                         </div>
@@ -787,7 +787,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="BHUngThu_2" name="BHUngThu_2" onchange="handleCheckedWithInputMoney('BHUngThu', 2)">
                           </div>
-                          <label class="form-check-label text-black" for="BHUngThu_2">
+                          <label class="form-check-label text-black text-start" for="BHUngThu_2">
                             Bảo Hiểm Hỗ Trợ Điều Trị Ung Thư
                           </label>
                         </div>
@@ -892,7 +892,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="noiTru_3" name="noiTru_3" onchange="handleChecked('noiTru', 3)">
                           </div>
-                          <label class="form-check-label text-black" for="noiTru_3">
+                          <label class="form-check-label text-black text-start" for="noiTru_3">
                             Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú
                           </label>
                         </div>
@@ -923,7 +923,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="noiTru20_3" name="noiTru20_3" onchange="handleChecked('noiTru20', 3)">
                           </div>
-                          <label class="form-check-label text-black" for="noiTru20_3">
+                          <label class="form-check-label text-black text-start" for="noiTru20_3">
                             Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú đồng chi trả 20% (dưới 6 tuổi mặc định đồng chi trả 30%)
                           </label>
                         </div>
@@ -954,7 +954,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="ngoaiTru_3" name="ngoaiTru_3" onchange="handleChecked('ngoaiTru', 3)">
                           </div>
-                          <label class="form-check-label text-black" for="ngoaiTru_3">
+                          <label class="form-check-label text-black text-start" for="ngoaiTru_3">
                             Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi ngoại trú
                           </label>
                         </div>
@@ -985,7 +985,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="taiNanCC_3" name="taiNanCC_3" onchange="handleCheckedWithInputMoney('taiNanCC', 3)">
                           </div>
-                          <label class="form-check-label text-black" for="taiNanCC_3">
+                          <label class="form-check-label text-black text-start" for="taiNanCC_3">
                             Bảo Hiểm Tai Nạn Cao Cấp
                           </label>
                         </div>
@@ -1010,7 +1010,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="hoTroVienPhi_3" name="hoTroVienPhi_3" onchange="handleCheckedWithInputMoney('hoTroVienPhi', 3)">
                           </div>
-                          <label class="form-check-label text-black" for="hoTroVienPhi_3">
+                          <label class="form-check-label text-black text-start" for="hoTroVienPhi_3">
                             Bảo Hiểm Hỗ Trợ Viện Phí
                           </label>
                         </div>
@@ -1046,7 +1046,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="BHNCaoCap_3" name="BHNCaoCap_3" onchange="handleCheckedWithInputMoney('BHNCaoCap', 3)">
                           </div>
-                          <label class="form-check-label text-black" for="BHNCaoCap_3">
+                          <label class="form-check-label text-black text-start" for="BHNCaoCap_3">
                             Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện
                           </label>
                         </div>
@@ -1071,7 +1071,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="BHUngThu_3" name="BHUngThu_3" onchange="handleCheckedWithInputMoney('BHUngThu', 3)">
                           </div>
-                          <label class="form-check-label text-black" for="BHUngThu_3">
+                          <label class="form-check-label text-black text-start" for="BHUngThu_3">
                             Bảo Hiểm Hỗ Trợ Điều Trị Ung Thư
                           </label>
                         </div>
@@ -1180,7 +1180,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="noiTru_4" name="noiTru_4" onchange="handleChecked('noiTru', 4)">
                           </div>
-                          <label class="form-check-label text-black" for="noiTru_4">
+                          <label class="form-check-label text-black text-start" for="noiTru_4">
                             Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú
                           </label>
                         </div>
@@ -1212,7 +1212,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="noiTru20_4" name="noiTru20_4" onchange="handleChecked('noiTru20', 4)">
                           </div>
-                          <label class="form-check-label text-black" for="noiTru20_4">
+                          <label class="form-check-label text-black text-start" for="noiTru20_4">
                             Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi nội trú đồng chi trả 20% (dưới 6 tuổi mặc định đồng chi trả 30%)
                           </label>
                         </div>
@@ -1245,7 +1245,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="ngoaiTru_4" name="ngoaiTru_4" onchange="handleChecked('ngoaiTru', 4)">
                           </div>
-                          <label class="form-check-label text-black" for="ngoaiTru_4">
+                          <label class="form-check-label text-black text-start" for="ngoaiTru_4">
                             Bảo Hiểm Chăm Sóc Sức Khỏe Toàn Cầu 24/7 Quyền lợi ngoại trú
                           </label>
                         </div>
@@ -1278,7 +1278,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="taiNanCC_4" name="taiNanCC_4" onchange="handleCheckedWithInputMoney('taiNanCC', 4)">
                           </div>
-                          <label class="form-check-label text-black" for="taiNanCC_4">
+                          <label class="form-check-label text-black text-start" for="taiNanCC_4">
                             Bảo Hiểm Tai Nạn Cao Cấp
                           </label>
                         </div>
@@ -1305,7 +1305,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="hoTroVienPhi_4" name="hoTroVienPhi_4" onchange="handleCheckedWithInputMoney('hoTroVienPhi', 4)">
                           </div>
-                          <label class="form-check-label text-black" for="hoTroVienPhi_4">
+                          <label class="form-check-label text-black text-start" for="hoTroVienPhi_4">
                             Bảo Hiểm Hỗ Trợ Viện Phí
                           </label>
                         </div>
@@ -1343,7 +1343,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="BHNCaoCap_4" name="BHNCaoCap_4" onchange="handleCheckedWithInputMoney('BHNCaoCap', 4)">
                           </div>
-                          <label class="form-check-label text-black" for="BHNCaoCap_4">
+                          <label class="form-check-label text-black text-start" for="BHNCaoCap_4">
                             Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện
                           </label>
                         </div>
@@ -1370,7 +1370,7 @@ try {
                           <div>
                             <input class="form-check-input" type="checkbox" id="BHUngThu_4" name="BHUngThu_4" onchange="handleCheckedWithInputMoney('BHUngThu', 4)">
                           </div>
-                          <label class="form-check-label text-black" for="BHUngThu_4">
+                          <label class="form-check-label text-black text-start" for="BHUngThu_4">
                             Bảo Hiểm Hỗ Trợ Điều Trị Ung Thư
                           </label>
                         </div>
@@ -1460,10 +1460,10 @@ try {
         <div class="text-primary-emphasis pt-2 pb-2 fs-6 fw-semibold" id="totalQuy">QUÝ (VNĐ): 0</div>
       </div>
       <div class="col-sm-4 d-flex justify-content-center text-bg-light pb-3">
-        <div class="text-primary-emphasis pt-2 pb-2 fs-6 fw-semibold" id="totalNuaNam">Nửa năm (VNĐ): 0</div>
+        <div class="text-primary-emphasis pt-2 pb-2 fs-6 fw-semibold" id="totalNuaNam">NỬA NĂM (VNĐ): 0</div>
       </div>
       <div class="col-sm-4 d-flex justify-content-center text-bg-light pb-3">
-        <div class="text-primary-emphasis pt-2 pb-2 fs-6 fw-semibold" id="total1Nam">Năm (VNĐ): 0</div>
+        <div class="text-primary-emphasis pt-2 pb-2 fs-6 fw-semibold" id="total1Nam">NĂM (VNĐ): 0</div>
       </div>
     </div>
   </div>
@@ -2324,7 +2324,7 @@ try {
       vanPhong
     };
 
-    console.log('Request Data:', requestData);
+    // console.log('Request Data:', requestData);
 
     fetch('backend/exportPdf.php', {
         method: 'POST',
@@ -2339,22 +2339,25 @@ try {
         }
         return response.json();
       })
-      .then(data => {
+      .then(async (data) => {
         if (data.success) {
           console.log("PDF generated successfully:", data.pdfUrl);
           // Trigger file download
           // Optionally, open the generated PDF file
-          window.open(`${data.pdfUrl}`, '_blank');
+          
+          // const link = document.createElement('a');
+          // link.href = `${data.pdfUrl}`;
+          // link.download = '';
+          // document.body.appendChild(link);
+          // link.click();
+          // document.body.removeChild(link);
 
-          const link = document.createElement('a');
-          link.href = `${data.pdfUrl}`;
-          link.download = '';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
+          // Usage
+          await downloadImageAsBlob(data.pdfUrl, data.fileName);
 
+          await window.open(`${data.pdfUrl}`, '_blank');
           // Notify the server to delete the file after download
-          fetch('backend/deletePdf.php', {
+          await fetch('backend/deletePdf.php', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -2379,6 +2382,24 @@ try {
         console.error("Error:", error);
       });
   }
+
+  async function downloadImageAsBlob(imageUrl, filename) {
+    try {
+        const response = await fetch(imageUrl);
+        const blob = await response.blob();
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(link.href);
+    } catch (error) {
+        console.error('Error downloading image:', error);
+    }
+}
+
+
 </script>
 <script src="./index.js"></script>
 

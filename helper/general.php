@@ -18,8 +18,8 @@ function extractAge($input)
 function getFullNameBH($key)
 {
   $names = [
-    'ATSH' => 'AN TÂM SONG HÀNH',
-    'ATDT' => 'AN THỊNH ĐẦU TƯ',
+    'ATSH' => 'An Tâm Song Hành',
+    'ATDT' => 'An Thịnh Đầu Tư',
   ];
 
   return $names[$key] ?? '';
@@ -46,4 +46,15 @@ function getFieldValue($value)
 function extractAfterColon($input) {
   $parts = explode(':', $input, 2); // Split into two parts by the first ':'
   return isset($parts[1]) ? trim($parts[1]) : 0; // Return trimmed part after ':' or null if not present
+}
+
+// get gender by key
+function getGender($key)
+{
+  $genders = [
+    'Nam' => 'Nam',
+    'Nu' => 'Nữ'
+  ];
+
+  return $genders[$key] ?? '';
 }
