@@ -31,6 +31,7 @@ $isBHTNCaoCap = false;
 $isBHHoTroVienPhi = false;
 $isBHHoTroDieuTriUngThu = false;
 $isBHSucKhoeToanCau24_7 = false;
+$isBHNgheoCCTD = false;
 // logEntry("Request data: " . json_encode($request));
 $BHMoney = '';
 if ($dataFormChinh['soTienBaoHiem_1'] !== '') {
@@ -75,9 +76,10 @@ if (isset($dataFormChinh['ngoaiTru_1']) && $dataFormChinh['ngoaiTru_1'] == 'on')
     ";
 }
 if (isset($dataFormChinh['BHNCaoCap_1']) && $dataFormChinh['BHNCaoCap_1'] == 'on') {
+    $isBHNgheoCCTD = true;
     $tableChinhHtml .= "
         <tr>
-            <td class='border-bottom'>Bảo Hiểm Tai Nạn Cao Cấp</td>
+            <td class='border-bottom'>Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện</td>
             <td class='border-bottom' colspan='2'>" . getFieldValue($dataFormChinh['BHNCaoCapSotienBH_1']) . "</td>
             <td class='border-bottom' colspan='2'>" . getFieldValue($dataFormChinh['BHNCaoCapPhiCoBan_1']) . "</td>
         </tr>
@@ -97,7 +99,7 @@ if (isset($dataFormChinh['taiNanCC_1']) && $dataFormChinh['taiNanCC_1'] == 'on')
     $isBHTNCaoCap = true;
     $tableChinhHtml .= "
         <tr>
-            <td class='border-bottom'>Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện</td>
+            <td class='border-bottom'>Bảo Hiểm Tai Nạn Cao Cấp</td>
             <td class='border-bottom' colspan='2'>" . getFieldValue($dataFormChinh['taiNanCCSotienBH_1']) . "</td>
             <td class='border-bottom' colspan='2'>" . getFieldValue($dataFormChinh['taiNanCCPhiCoBan_1']) . "</td>
         </tr>
@@ -194,6 +196,7 @@ if ($dataFormBoSung1['hoVaTen_2'] !== "" && $dataFormBoSung1['gioiTinh_2'] !== "
         ";
     }
     if (isset($dataFormBoSung1['BHNCaoCap_2']) && $dataFormBoSung1['BHNCaoCap_2'] == 'on') {
+        $isBHNgheoCCTD = true;
         $tableBoSungHtml_1 .= "
             <tr>
                 <td class='border-bottom'>Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện</td>
@@ -299,6 +302,7 @@ if ($dataFormBoSung2['hoVaTen_3'] !== "" && $dataFormBoSung2['gioiTinh_3'] !== "
         ";
     }
     if (isset($dataFormBoSung2['BHNCaoCap_3']) && $dataFormBoSung2['BHNCaoCap_3'] == 'on') {
+        $isBHNgheoCCTD = true;
         $tableBoSungHtml_2 .= "
             <tr>
                 <td class='border-bottom'>Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện</td>
@@ -404,6 +408,7 @@ if ($dataFormBoSung3['hoVaTen_4'] !== "" && $dataFormBoSung3['gioiTinh_4'] !== "
         ";
     }
     if (isset($dataFormBoSung3['BHNCaoCap_4']) && $dataFormBoSung3['BHNCaoCap_4'] == 'on') {
+        $isBHNgheoCCTD = true;
         $tableBoSungHtml_3 .= "
             <tr>
                 <td class='border-bottom'>Bảo Hiểm Bệnh Hiểm Nghèo Cao Cấp Toàn Diện</td>
@@ -524,6 +529,9 @@ $htmlContent = "
         .text-size {
             font-size: 13px;
         }
+        .hight-footer {
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -595,9 +603,9 @@ $htmlContent = "
         <h5>TỔNG PHÍ BẢO HIỂM (ĐỒNG)</h5>
         <table class='text-size'>
             <tr class='section-title'>
-                <td class='title-table border-bottom highlight_blue custom-font' style='font-size: 14px;'>Quý</td>
-                <td class='title-table border-bottom highlight_blue custom-font' style='font-size: 14px;'>Nửa năm</td>
-                <td class='title-table border-bottom highlight_blue custom-font' style='font-size: 14px;'>Năm</td>
+                <td class='title-table border-bottom highlight_blue custom-font' style='font-size: 14px;'>QUÝ</td>
+                <td class='title-table border-bottom highlight_blue custom-font' style='font-size: 14px;'>NỬA NĂM</td>
+                <td class='title-table border-bottom highlight_blue custom-font' style='font-size: 14px;'>NĂM</td>
             </tr>
 
             <tr>
@@ -623,13 +631,24 @@ $htmlContent = "
             <li>Quyền lợi thưởng duy trì hợp đồng</li>
             <li>Quyền lợi thưởng gắn bó dài lâu</li>
             <li>Quyền lợi đáo hạn</li>
-        </ul>".
+        </ul>
+        ".
+        (
+            $isBHNgheoCCTD ? 
+            "<h5>QUYỀN LỢI BẢO HIỂM BỆNH HIỂM NGHÈO CAO CẤP TOÀN DIỆN</h5>
+            <ul>
+                <li>QL BẢO HIỂM BỆNH HIỂM NGHÈO THỂ NHẸ: Nhận 50% STBH khi mắc 1 trong 35 bệnh hiểm nghèo thể nhẹ.</li>
+                <li>QL BẢO HIỂM BỆNH HIỂM NGHÈO NGHIÊM TRỌNG: Nhận 100% STBH khi mắc 1 trong 53 bệnh hiểm nghèo nghiêm trọng.</li>
+            </ul>" : ""
+        )
+        ."".
         (
             $isBHTNCaoCap ? 
-            "<h5>QUYỀN LỢI BẢO HIỂM TAI NẠN CAO CẤP</h5>
+            "<h5>QUYỀN LỢI BẢO HIỂM TAI NẠN CAO CẤP CAO CẤP</h5>
             <ul>
                 <li>Quyền lợi tử vong do tai nạn lên đến 200% số tiền bảo hiểm</li>
-                <li>Quyền lợi do tai nạn: nhận tỷ lệ % STBH dựa trên sự kiện và tỷ lệ thanh</li>
+                <li>Quyền lợi thương tật do tai nạn: nhận tỷ lệ % STBH theo bảng sự kiện và tỷ lệ thanh toán</li>
+                <li>Quyền lợi hỗ trợ viện phí do tai nạn: nhận 200.000 đồng cho mỗi ngày nằm viện điều trị nội trú</li>
             </ul>" : ""
         )
         ."".
@@ -670,11 +689,11 @@ $htmlContent = "
                 <table class='table-BHTC text-size'>
                     <tr>
                         <th colspan='2'>CHƯƠNG TRÌNH BẢO HIỂM</th>
-                        <th class='highlight_coban'>CƠ BẢN</th>
-                        <th class='highlight_phothong'>PHỔ THÔNG</th>
-                        <th class='highlight_dacbiet'>ĐẶC BIỆT</th>
-                        <th class='highlight_caocap'>CAO CẤP</th>
-                        <th class='highlight_thinhvuong'>THỊNH VƯỢNG</th>
+                        <th class='highlight_coban'>CƠ BẢN</th>
+                        <th class='highlight_phothong'>PHỔ THÔNG</th>
+                        <th class='highlight_dacbiet'>ĐẶC BIỆT</th>
+                        <th class='highlight_caocap'>CAO CẤP</th>
+                        <th class='highlight_thinhvuong'>THỊNH VƯỢNG</th>
                     </tr>
                     <tr>
                         <td colspan='2' rowspan='2'>
@@ -697,11 +716,11 @@ $htmlContent = "
                         <td colspan='5' class='section-title'>MỨC GIỚI HẠN PHỤ</td>
                     </tr>   
                     <tr>
-                        <th class='highlight_coban'>CƠ BẢN</th>
-                        <th class='highlight_phothong'>PHỔ THÔNG</th>
-                        <th class='highlight_dacbiet'>ĐẶC BIỆT</th>
-                        <th class='highlight_caocap'>CAO CẤP</th>
-                        <th class='highlight_thinhvuong'>THỊNH VƯỢNG</th>
+                        <th class='highlight_coban'>CƠ BẢN</th>
+                        <th class='highlight_phothong'>PHỔ THÔNG</th>
+                        <th class='highlight_dacbiet'>ĐẶC BIỆT</th>
+                        <th class='highlight_caocap'>CAO CẤP</th>
+                        <th class='highlight_thinhvuong'>THỊNH VƯỢNG</th>
                     </tr>
                     <tr>
                         <td colspan='2' style='text-align: start;'>Phạm vi địa lý</td>
@@ -819,11 +838,11 @@ $htmlContent = "
                         <td colspan='5' class='section-title'>MỨC GIỚI HẠN PHỤ</td>
                     </tr>   
                     <tr>
-                        <th class='highlight_coban'>CƠ BẢN</th>
-                        <th class='highlight_phothong'>PHỔ THÔNG</th>
-                        <th class='highlight_dacbiet'>ĐẶC BIỆT</th>
-                        <th class='highlight_caocap'>CAO CẤP</th>
-                        <th class='highlight_thinhvuong'>THỊNH VƯỢNG</th>
+                        <th class='highlight_coban'>CƠ BẢN</th>
+                        <th class='highlight_phothong'>PHỔ THÔNG</th>
+                        <th class='highlight_dacbiet'>ĐẶC BIỆT</th>
+                        <th class='highlight_caocap'>CAO CẤP</th>
+                        <th class='highlight_thinhvuong'>THỊNH VƯỢNG</th>
                     </tr>
 
                     <tr class='section-title'>
@@ -945,11 +964,11 @@ $htmlContent = "
                         <td colspan='5' class='section-title'>MỨC GIỚI HẠN PHỤ</td>
                     </tr>   
                     <tr>
-                        <th class='highlight_coban'>CƠ BẢN</th>
-                        <th class='highlight_phothong'>PHỔ THÔNG</th>
-                        <th class='highlight_dacbiet'>ĐẶC BIỆT</th>
-                        <th class='highlight_caocap'>CAO CẤP</th>
-                        <th class='highlight_thinhvuong'>THỊNH VƯỢNG</th>
+                        <th class='highlight_coban'>CƠ BẢN</th>
+                        <th class='highlight_phothong'>PHỔ THÔNG</th>
+                        <th class='highlight_dacbiet'>ĐẶC BIỆT</th>
+                        <th class='highlight_caocap'>CAO CẤP</th>
+                        <th class='highlight_thinhvuong'>THỊNH VƯỢNG</th>
                     </tr>
                     <tr>
                         <td colspan='2' style='text-align: start;'>Phạm vi địa lý</td>
@@ -985,11 +1004,11 @@ $htmlContent = "
                         <td colspan='5' class='section-title'>MỨC GIỚI HẠN PHỤ</td>
                     </tr>   
                     <tr>
-                        <th class='highlight_coban'>CƠ BẢN</th>
-                        <th class='highlight_phothong'>PHỔ THÔNG</th>
-                        <th class='highlight_dacbiet'>ĐẶC BIỆT</th>
-                        <th class='highlight_caocap'>CAO CẤP</th>
-                        <th class='highlight_thinhvuong'>THỊNH VƯỢNG</th>
+                        <th class='highlight_coban'>CƠ BẢN</th>
+                        <th class='highlight_phothong'>PHỔ THÔNG</th>
+                        <th class='highlight_dacbiet'>ĐẶC BIỆT</th>
+                        <th class='highlight_caocap'>CAO CẤP</th>
+                        <th class='highlight_thinhvuong'>THỊNH VƯỢNG</th>
                     </tr>
                     <tr>
                         <td colspan='2' style='text-align: start;'>Phạm vi địa lý</td>
@@ -1052,13 +1071,23 @@ try {
 
     // Define the footer
     $footerHtml = "
+        <hr/>
         <table style='font-size: 12px; font-weight: normal; width: 100%; background-color: #fff;'>
             <tr>
-                <td colspan='2' style='font-weight: normal; text-align: start; color:  #929292;'>Chuyên viên tư vấn: {$nhanVienTuVan}</td>
+                <td colspan='2' style='font-weight: normal; text-align: start; color:  #929292;'>
+                    Chuyên viên tư vấn: 
+                    <span style='font-weight: 800; color:rgb(71, 71, 71);'>{$nhanVienTuVan}</span>
+                </td>
             </tr>
             <tr>
-                <td style='font-weight: normal; text-align: start; color: #929292;'>Số điện thoại: {$sdt}</td>
-                <td style='font-weight: normal; text-align: center; color:  #929292;'>Văn phòng: {$vanPhong}</td>
+                <td style='font-weight: normal; text-align: start; color: #929292;'>
+                    Số điện thoại: 
+                    <span style='font-weight: 800; color:rgb(71, 71, 71);'>{$sdt}</span>
+                </td>
+                <td style='font-weight: normal; text-align: center; color:  #929292;'>
+                    Văn phòng: 
+                    <span style='font-weight: 800; color:rgb(71, 71, 71);'>{$vanPhong}</span>
+                </td>
             </tr>
         </table>
     ";

@@ -100,32 +100,47 @@ try {
         <button type="button" style="height: fit-content;" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Xem ngành nghề</button>
       </div>
     </div>
-    <div class="row d-flex justify-content-between align-items-center">
-      <div class="col-sm-3 d-flex justify-content-start p-2">
-        <div class=" d-flex flex-column justify-content-start">
-          <label for="writer" class="form-label m-0 text-start text-label text-secondary">Watermark:</label>
-          <input type="text" class="form-control shadow-sm" id="writer" name="writer" placeholder="" aria-describedby="emailHelp">
+    <form id="form-info-writer">
+      <div class="row d-flex justify-content-between align-items-center">
+        <div class="col-sm-3 d-flex justify-content-start p-2">
+          <div class=" d-flex flex-column justify-content-start">
+            <label for="writer" class="form-label m-0 text-start text-label text-secondary">Watermark:</label>
+            <input type="text" class="form-control shadow-sm" id="writer" name="writer" placeholder="" aria-describedby="emailHelp" required>
+            <div class="invalid-feedback">
+              Vui lòng điền thông tin.
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 d-flex justify-content-start p-2">
+          <div class=" d-flex flex-column justify-content-start">
+            <label for="nhanVienTuVan" class="form-label m-0 text-start text-label text-secondary">Chuyên viên tư vấn:</label>
+            <input type="text" class="form-control shadow-sm" id="nhanVienTuVan" name="nhanVienTuVan" placeholder="" aria-describedby="emailHelp" required>
+            <div class="invalid-feedback">
+              Vui lòng điền thông tin.
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 d-flex justify-content-start p-2">
+          <div class=" d-flex flex-column justify-content-start">
+            <label for="sdt" class="form-label m-0 text-start text-label text-secondary">Số điện thoại:</label>
+            <input  type="tel" pattern="[0-9]{10}" maxlength="10" required class="form-control shadow-sm" id="sdt" name="sdt" placeholder="" aria-describedby="emailHelp">
+            <div class="invalid-feedback">
+              Định dạng SĐT: 0123456789
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-3 d-flex justify-content-start p-2">
+          <div class=" d-flex flex-column justify-content-start">
+            <label for="vanPhong" class="form-label m-0 text-start text-label text-secondary">Văn phòng:</label>
+            <input type="text" class="form-control shadow-sm" id="vanPhong" name="vanPhong" placeholder="" aria-describedby="emailHelp" required>
+            <div class="invalid-feedback">
+              Vui lòng điền thông tin.
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-sm-3 d-flex justify-content-start p-2">
-        <div class=" d-flex flex-column justify-content-start">
-          <label for="nhanVienTuVan" class="form-label m-0 text-start text-label text-secondary">Chuyên viên tư vấn:</label>
-          <input type="text" class="form-control shadow-sm" id="nhanVienTuVan" name="nhanVienTuVan" placeholder="" aria-describedby="emailHelp">
-        </div>
-      </div>
-      <div class="col-sm-3 d-flex justify-content-start p-2">
-        <div class=" d-flex flex-column justify-content-start">
-          <label for="sdt" class="form-label m-0 text-start text-label text-secondary">Số điện thoại:</label>
-          <input type="text" class="form-control shadow-sm" id="sdt" name="sdt" placeholder="" aria-describedby="emailHelp">
-        </div>
-      </div>
-      <div class="col-sm-3 d-flex justify-content-start p-2">
-        <div class=" d-flex flex-column justify-content-start">
-          <label for="vanPhong" class="form-label m-0 text-start text-label text-secondary">Văn phòng:</label>
-          <input type="text" class="form-control shadow-sm" id="vanPhong" name="vanPhong" placeholder="" aria-describedby="emailHelp">
-        </div>
-      </div>
-    </div>
+    </form>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -295,6 +310,29 @@ try {
                             <option value="74">74</option>
                             <option value="75">75</option>
                             <option value="76">76</option>
+                            <option value="77">77</option>
+                            <option value="78">78</option>
+                            <option value="79">79</option>
+                            <option value="80">80</option>
+                            <option value="81">81</option>
+                            <option value="82">82</option>
+                            <option value="83">83</option>
+                            <option value="84">84</option>
+                            <option value="85">85</option>
+                            <option value="86">86</option>
+                            <option value="87">87</option>
+                            <option value="88">88</option>
+                            <option value="89">89</option>
+                            <option value="90">90</option>
+                            <option value="91">91</option>
+                            <option value="92">92</option>
+                            <option value="93">93</option>
+                            <option value="94">94</option>
+                            <option value="95">95</option>
+                            <option value="96">96</option>
+                            <option value="97">97</option>
+                            <option value="98">98</option>
+                            <option value="99">99</option>
                           </select>
                         </div>
                       </div>
@@ -2299,11 +2337,33 @@ try {
     const dataForm4 = getDataFormByPriority(4);
     const total = getTotalData();
 
-    // check writer is empty
-    if (writer === '') {
-      alert('Vui lòng nhập tên người nhập thông tin!');
+    // validate form info writer
+    const formInfoWriter = document.getElementById('form-info-writer');
+    // add validate formInfoWriter
+    if (formInfoWriter.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+      formInfoWriter.classList.add('was-validated');
       // focus to input writer
-      document.getElementById('writer').focus();
+      if (writer === '') {
+        document.getElementById('writer').focus();
+      }
+      if (nhanVienTuVan === '') {
+        document.getElementById('nhanVienTuVan').focus();
+      }
+      if (sdt === '') {
+        document.getElementById('sdt').focus();
+      }
+      if (vanPhong === '') {
+        document.getElementById('vanPhong').focus();
+      }
+      // check format phone number
+      if (sdt !== '') {
+        const regex = /(84|0[3|5|7|8|9])+([0-9]{8})\b/;
+        if (!regex.test(sdt)) {
+          document.getElementById('sdt').focus();
+        }
+      }
       return;
     }
 
